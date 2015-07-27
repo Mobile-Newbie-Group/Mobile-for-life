@@ -1,7 +1,7 @@
 //
 //  DropitTests.m
 //  DropitTests
-//  test from eva
+//
 //  Created by CS193p Instructor on 10/21/13.
 //  Copyright (c) 2013 Stanford University. All rights reserved.
 //
