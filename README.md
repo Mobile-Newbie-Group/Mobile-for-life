@@ -1,3 +1,0 @@
-# Mobile-for-life
-
-test
