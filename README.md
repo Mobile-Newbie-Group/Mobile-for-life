@@ -1,11 +1,8 @@
 # Mobile-for-life
 
 Mobile for life Software version Alpha 1.0.
-
 Created by group 'Newbie Mobile'
-
 Group Member: Xu Hao, Steven Lu,Alex Zhu,James Chen,Xiaodong Chen,Eva Lam
-
 This software aims to provide a way to analyse personal habit.
 
 Idea Collection:
