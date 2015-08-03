@@ -9,8 +9,13 @@ This software aims to provide a way to analyse personal habit.
 Idea Collection:
 
 Eva:our APP need to intresest user by provide funny fuctions like how to live a day as others
+
 Hao:
+
 Alex:
+
 Steven:
+
 James:
+
 Xiaodong:
