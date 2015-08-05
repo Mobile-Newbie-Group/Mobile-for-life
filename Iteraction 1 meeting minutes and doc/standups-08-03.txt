@@ -1,3 +1,10 @@
+Done well:
+1.team积极性很高。对mobile， 对agile
+2.能积极参与，并平等发表自己的建议。
+3.从无到有，eva,xiaodong,james在github,环境搭建起了很好的开端
+
+
+Not well:
 1，task分配尽量invovle 每个人，提高每个人的积极性和参与度
 2，task要清晰，detail有record
 3，要摆脱旧的管理方式，运用agile的方法
