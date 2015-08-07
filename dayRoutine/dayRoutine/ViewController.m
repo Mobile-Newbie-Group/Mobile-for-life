@@ -154,18 +154,15 @@
     [_testPack addObject: @"~Old Enough~"];
     [_testPack addObject: [NSMutableArray arrayWithObjects:
                            @"0", @"0.5", @"", @"3",
-                           @"0.5", @"3.0", @"In Another World", @"0",
-                           @"3", @"3.5", @"ewwww!", @"3",
-                           @"3.5", @"7", @"In Another World", @"0",
-                           @"7", @"8", @"Read", @"3",
-                           @"8", @"8.5", @"Fighting on bus", @"1",
-                           @"8.5", @"11.5", @"Work", @"2",
-                           @"11.5", @"12.5", @"Lunch with Earth buddies", @"1",
-                           @"12.5", @"13.5",@"", @"3",
-                           @"13.5", @"17.5", @"Work", @"2",
-                           @"17.5", @"21", @"Yabadabadooo!", @"1",
-                           @"21", @"23.5",@"Meeting", @"2",
-                           @"23.5", @"24",@"Read", @"3",nil]];
+                           @"0.5", @"7.5", @"In Another World", @"0",
+                           @"7.5", @"8.5", @"∞Read", @"3",
+                           @"8.5", @"11.5", @"Work on the Earth", @"2",
+                           @"11.5", @"12.5", @"∞With Friends°∞", @"1",
+                           @"12.5", @"13.5",@"Read", @"3",
+                           @"13.5", @"17.5", @"Work on the Earth", @"2",
+                           @"17.5", @"21", @"∞With Family°±", @"1",
+                           @"21", @"23",@"Work on the Earth", @"2",
+                           @"23", @"24",@"∞Read", @"3",nil]];
     
     [_testPack addObject: @"James"];
     [_testPack addObject: @"Fancy iOS development"];
