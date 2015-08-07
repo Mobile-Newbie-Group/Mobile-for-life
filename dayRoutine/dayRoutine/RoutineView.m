@@ -17,9 +17,9 @@
 @property (nonatomic) CGFloat CircuitMiddleR;
 @property (nonatomic) CGFloat CircuitInternalR;
 
-#define CIRCUIT_EXTERNAL_RADIUS 110
-#define CIRCUIT_MIDDLE_RADIUS 100
-#define CIRCUIT_INTERNAL_RADIUS 70
+#define CIRCUIT_EXTERNAL_RADIUS 100
+#define CIRCUIT_MIDDLE_RADIUS 90
+#define CIRCUIT_INTERNAL_RADIUS 60
 
 @end
 
@@ -87,7 +87,7 @@
 // get the frame centre
 - (CGPoint )centreP
 {
-    return CGPointMake(self.frame.size.width/2, self.frame.size.height * 4/7 );
+    return CGPointMake(self.frame.size.width /2, self.frame.size.height * 4/7 );
 }
 
 #pragma mark - draw life routine circle
@@ -106,10 +106,12 @@
     
     [roundedRect addClip];
 
-    [[UIColor colorWithRed:206/255.0 green:206/255.0 blue:206/255.0 alpha:1.0] setFill];
+    //[[UIColor colorWithRed:206/255.0 green:206/255.0 blue:206/255.0 alpha:1.0] setFill];
+    [[UIColor whiteColor] setFill];
     UIRectFill(self.bounds); 
     
     [[UIColor blackColor] setStroke];
+    [roundedRect setLineWidth:2.0];
     [roundedRect stroke];
 
     [self.pic drawInRect:CGRectMake(self.centreP.x - self.CircuitInternalR,
@@ -135,12 +137,12 @@
     
     [titleLabel setFont:[UIFont fontWithName:@"Arial-BoldItalicMT" size:20 * self.picScaleFactor]];
     
-    [titleLabel drawTextInRect:CGRectMake(self.centreP.x - [titleLabel.text length] * 10 * self.picScaleFactor,
+    [titleLabel drawTextInRect:CGRectMake(self.centreP.x - [titleLabel.text length] * 5 * self.picScaleFactor,
                                           self.centreP.y - self.CircuitMiddleR - self.CircuitInternalR,
                                           [titleLabel.text length] * 20 * self.picScaleFactor , 5 * self.picScaleFactor)];
     titleLabel.text = self.subTitle;
     [titleLabel drawTextInRect:CGRectMake(self.centreP.x -[titleLabel.text length]* 5 * self.picScaleFactor,
-                                         self.centreP.y - self.CircuitInternalR - self.CircuitInternalR  ,
+                                         self.centreP.y - self.CircuitInternalR *2,
                                           [titleLabel.text length] * 20* self.picScaleFactor ,5* self.picScaleFactor)];
 }
 
@@ -159,18 +161,18 @@
     UILabel *timeLabel = [[UILabel alloc] init];
     timeLabel.text = text;
     
-    [timeLabel setFont:[UIFont fontWithName:@"Helvetica" size:12* self.picScaleFactor]];
+    [timeLabel setFont:[UIFont fontWithName:@"Helvetica" size:9.5* self.picScaleFactor]];
     
     double labelY = 0;
     double labelX = 0;
     
     if (endAngle < 0 || endAngle > M_PI)
-        labelY = 0-10* self.picScaleFactor;
+        labelY = 0-5* self.picScaleFactor;
     else
-        labelY = 10* self.picScaleFactor;
+        labelY =  5* self.picScaleFactor;
     
     if (endAngle >  0.5 * M_PI && endAngle < 1.5 * M_PI)
-        labelX =  12 * [text length]* self.picScaleFactor ;
+        labelX =  4.5 * [text length]* self.picScaleFactor ;
     else
         labelX = 0;
     

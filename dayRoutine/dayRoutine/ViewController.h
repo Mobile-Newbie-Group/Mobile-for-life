@@ -17,7 +17,7 @@
 #define HORIZON_SPACE 0
 #define ASPECT_RATIO 180.0/180.0
 
-#define PAGE_LAYOUT_NUMBER 1
+#define PAGE_LAYOUT_MAX_NUMBER 12
 
 @end
 
