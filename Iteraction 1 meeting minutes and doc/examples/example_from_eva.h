@@ -15,14 +15,16 @@
 
 # Eva Lam  
 
-           rv.activities = [NSMutableArray arrayWithObjects: @"0.5", @"8", @"sleeping", @"0",
-                                                             @"8", @"9", @"washing and take a metro to office", @"3",
-                                                             @"9", @"11.5", @"working", @"2",
-                                                             @"11.5", @"13.5", @"lunch and break", @"1",
-                                                             @"13.5", @"18",@"working", @"2",
-                                                             @"18", @"19", @"supper,chat", @"1",
-                                                             @"19", @"21", @"'study nite' time", @"4",
-                                                             @"21", @"0.5", @"'watch TV,wechat,reading", @"3",nil];
-
-        rv.title = @"Eva Lam";
-        rv.subTitle = @"C.2015";
+    [_testPack addObject: [NSMutableArray arrayWithObjects:
+                           @"0.5", @"8", @"sleeping", @"0",
+                           @"8", @"8.5", @"reading news", @"1",
+                           @"8.5", @"9", @"washing then take a metro", @"3",
+                           @"9", @"11.5", @"working", @"2",
+                           @"11.5", @"12.5", @"lunch,chat", @"1",
+                           @"12.5", @"13.5", @"snap", @"1",
+                           @"13.5", @"18",@"working", @"2",
+                           @"18", @"19", @"supper,chat with friends", @"1",
+                           @"19", @"21", @"'study nite' time", @"4",
+                           @"21", @"23", @"watch TV", @"1",
+                           @"23", @"0", @"wechat,reading", @"3",
+                           @"0", @"0.5", @"play candy crash to fall asleep", @"1",nil]];
