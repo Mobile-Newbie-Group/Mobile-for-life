@@ -82,7 +82,7 @@
     
     //the pic must be the same as name with a first capital letter
     [_testPack addObject: @"Darwin"];
-    [_testPack addObject: @"C.1809 - 1882"];
+    [_testPack addObject: @"1809 - 1882"];
     [_testPack addObject: [NSMutableArray arrayWithObjects:
                            @"0", @"7", @"sleeping", @"0",
                            @"7", @"7.5", @"walking", @"3",
@@ -103,6 +103,32 @@
                            @"20", @"21",@"play chess", @"1",
                            @"21", @"22",@"read books", @"4",
                            @"22", @"24",@"laying on bed and thinking", @"2",nil]];
+    
+    [_testPack addObject: @"Eva"];
+    [_testPack addObject: @"C.2015"];
+    [_testPack addObject: [NSMutableArray arrayWithObjects:
+                           @"0.5", @"8", @"sleeping", @"0",
+                           @"8", @"9", @"washing and take a metro to office", @"3",
+                           @"9", @"11.5", @"working", @"2",
+                           @"11.5", @"13.5", @"lunch and break", @"1",
+                           @"13.5", @"18",@"working", @"2",
+                           @"18", @"19", @"supper,chat", @"1",
+                           @"19", @"21", @"'study nite' time", @"4",
+                           @"21", @"0.5", @"'watch TV,wechat,reading", @"3",nil]];
+
+    
+    
+    [_testPack addObject: @"Franklin"];
+    [_testPack addObject: @"C.1771"];
+    [_testPack addObject: [NSMutableArray arrayWithObjects:
+                            @"5", @"8", @"think about what to do today", @"1",
+                            @"8", @"12", @"working", @"2",
+                            @"12", @"14", @"reading,check account book,lunch", @"1",
+                            @"14", @"18",@"working", @"2",
+                            @"18", @"20", @"supper,music,chat,entertainment", @"3",
+                            @"20", @"22", @"think about what did well today", @"1",
+                            @"22", @"29", @"sleeping", @"0",nil]];
+    
     
     [_testPack addObject: @"Gary"];
     [_testPack addObject: @"One day in Shenzhen"];
