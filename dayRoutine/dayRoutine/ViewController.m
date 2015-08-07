@@ -117,7 +117,7 @@
                            @"18", @"19", @"supper,chat with friends", @"1",
                            @"19", @"21", @"'study nite' time", @"4",
                            @"21", @"23", @"watch TV", @"1",
-                           @"23", @"0", @"wechat,reading", @"3",
+                           @"23", @"24", @"wechat,reading", @"3",
                            @"0", @"0.5", @"play candy crash to fall asleep", @"1",nil]];
 
     
