@@ -256,7 +256,7 @@
     //draw the last line by using arc drawing
     [bezierPathArc addArcWithCenter:self.centreP radius:iRadius startAngle:startAngle endAngle:startAngle clockwise:YES];
     
-    [bezierPathArc setLineWidth:1.0];
+    [bezierPathArc setLineWidth: 1 * self.picScaleFactor];
     [strokeColor setStroke];
     [bezierPathArc stroke];
     
