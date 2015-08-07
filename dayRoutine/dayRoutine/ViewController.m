@@ -84,22 +84,25 @@
     [_testPack addObject: @"Darwin"];
     [_testPack addObject: @"C.1809 - 1882"];
     [_testPack addObject: [NSMutableArray arrayWithObjects:
-                           @"23.5", @"7.5", @"sleep",@"0",
-                           @"7.5", @"8", @"body building",@"3",
-                           @"8", @"8.5", @"breakfast",@"1",
-                           @"8.5", @"9.5", @"going to work",@"2",
-                           @"9.5", @"11.5", @"work", @"2",
-                           @"11.5", @"12.5",@"lunch", @"1",
-                           @"12.5", @"13.5", @"rest", @"0",
-                           @"13.5", @"15.5", @"work", @"2",
-                           @"15.5", @"16", @"relaxing", @"3",
-                           @"16", @"17.5",@"work", @"2",
-                           @"17.5", @"18.5", @"going home",@"1",
-                           @"18.5", @"19.5", @"dinner", @"1",
-                           @"19.5", @"21.5", @"programming", @"1",
-                           @"21.5", @"22", @"sports", @"3",
-                           @"22", @"22.5", @"shower", @"3",
-                           @"22.5", @"23.5",@"reading", @"1",nil]];
+                           @"0", @"7", @"sleeping", @"0",
+                           @"7", @"7.5", @"walking", @"3",
+                           @"7.5", @"8", @"breakfast", @"1",
+                           @"8", @"9.5", @"work", @"2",
+                           @"9.5", @"10.5",@"reading mail", @"4",
+                           @"10.5", @"12", @"work", @"2",
+                           @"12", @"12.5", @"rest", @"3",
+                           @"12.5", @"13", @"lunch", @"1",
+                           @"13", @"14",@"reading news paper", @"4",
+                           @"14", @"15",@"writing mail", @"4",
+                           @"15", @"16", @"sleeping", @"0",
+                           @"16", @"16.5", @"walking", @"3",
+                           @"16.5", @"17.5",@"relaxing work", @"4",
+                           @"17.5", @"18",@"do nothing", @"1",
+                           @"18", @"19",@"reading books", @"1",
+                           @"19", @"20",@"have tea&eggs", @"1",
+                           @"20", @"21",@"play chess", @"1",
+                           @"21", @"22",@"read books", @"4",
+                           @"22", @"24",@"laying on bed and thinking", @"2",nil]];
     
     [_testPack addObject: @"Gary"];
     [_testPack addObject: @"One day in Shenzhen"];
@@ -138,25 +141,22 @@
     [_testPack addObject: @"James"];
     [_testPack addObject: @"Fancy iOS development"];
     [_testPack addObject: [NSMutableArray arrayWithObjects:
-                           @"0", @"7", @"sleeping", @"0",
-                           @"7", @"7.5", @"walking", @"3",
-                           @"7.5", @"8", @"breakfast", @"1",
-                           @"8", @"9.5", @"work", @"2",
-                           @"9.5", @"10.5",@"reading mail", @"4",
-                           @"10.5", @"12", @"work", @"2",
-                           @"12", @"12.5", @"rest", @"3",
-                           @"12.5", @"13", @"lunch", @"1",
-                           @"13", @"14",@"reading news paper", @"4",
-                           @"14", @"15",@"writing mail", @"4",
-                           @"15", @"16", @"sleeping", @"0",
-                           @"16", @"16.5", @"walking", @"3",
-                           @"16.5", @"17.5",@"relaxing work", @"4",
-                           @"17.5", @"18",@"do nothing", @"1",
-                           @"18", @"19",@"reading books", @"1",
-                           @"19", @"20",@"have tea&eggs", @"1",
-                           @"20", @"21",@"play chess", @"1",
-                           @"21", @"22",@"read books", @"4",
-                           @"22", @"24",@"laying on bed and thinking", @"2",nil]];
+                           @"23.5", @"7.5", @"sleep",@"0",
+                           @"7.5", @"8", @"body building",@"3",
+                           @"8", @"8.5", @"breakfast",@"1",
+                           @"8.5", @"9.5", @"going to work",@"2",
+                           @"9.5", @"11.5", @"work", @"2",
+                           @"11.5", @"12.5",@"lunch", @"1",
+                           @"12.5", @"13.5", @"rest", @"0",
+                           @"13.5", @"15.5", @"work", @"2",
+                           @"15.5", @"16", @"relaxing", @"3",
+                           @"16", @"17.5",@"work", @"2",
+                           @"17.5", @"18.5", @"going home",@"1",
+                           @"18.5", @"19.5", @"dinner", @"1",
+                           @"19.5", @"21.5", @"programming", @"1",
+                           @"21.5", @"22", @"sports", @"3",
+                           @"22", @"22.5", @"shower", @"3",
+                           @"22.5", @"23.5",@"reading", @"1",nil]];
 }
 
 - (void)didReceiveMemoryWarning {
