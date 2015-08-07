@@ -16,7 +16,6 @@
 		C962713B1B6F4BC40017074B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C96271391B6F4BC40017074B /* Main.storyboard */; };
 		C962713D1B6F4BC40017074B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C962713C1B6F4BC40017074B /* Images.xcassets */; };
 		C962714C1B6F4BC50017074B /* dayRoutineTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C962714B1B6F4BC50017074B /* dayRoutineTests.m */; };
-		C962715E1B6F53730017074B /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = C962715D1B6F53730017074B /* Activity.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,8 +46,6 @@
 		C96271451B6F4BC50017074B /* dayRoutineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dayRoutineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C962714A1B6F4BC50017074B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C962714B1B6F4BC50017074B /* dayRoutineTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = dayRoutineTests.m; sourceTree = "<group>"; };
-		C962715C1B6F53430017074B /* Activity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Activity.h; sourceTree = "<group>"; };
-		C962715D1B6F53730017074B /* Activity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Activity.m; sourceTree = "<group>"; };
 		C962715F1B6F53970017074B /* dayRoutine-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "dayRoutine-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -70,6 +67,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C95180A61B73AFC9009E5237 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C91980C51B71E2E3009FC73D /* RoutineView.h */,
+				C91980C31B71E2CB009FC73D /* RoutineView.m */,
+				C93390B31B72C7EB00A0C653 /* Grid.h */,
+				C93390B41B72C7EB00A0C653 /* Grid.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		C95180A71B73AFE1009E5237 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C96271361B6F4BC40017074B /* ViewController.h */,
+				C96271371B6F4BC40017074B /* ViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		C95180A81B73B00A009E5237 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				C96271331B6F4BC40017074B /* dayRoutine.xcdatamodeld */,
+			);
+			name = Module;
+			sourceTree = "<group>";
+		};
 		C96271201B6F4BC40017074B = {
 			isa = PBXGroup;
 			children = (
@@ -91,19 +116,10 @@
 		C962712B1B6F4BC40017074B /* dayRoutine */ = {
 			isa = PBXGroup;
 			children = (
-				C96271301B6F4BC40017074B /* AppDelegate.h */,
-				C96271311B6F4BC40017074B /* AppDelegate.m */,
-				C96271361B6F4BC40017074B /* ViewController.h */,
-				C96271371B6F4BC40017074B /* ViewController.m */,
-				C93390B31B72C7EB00A0C653 /* Grid.h */,
-				C93390B41B72C7EB00A0C653 /* Grid.m */,
-				C91980C51B71E2E3009FC73D /* RoutineView.h */,
-				C91980C31B71E2CB009FC73D /* RoutineView.m */,
-				C962715C1B6F53430017074B /* Activity.h */,
-				C962715D1B6F53730017074B /* Activity.m */,
 				C96271391B6F4BC40017074B /* Main.storyboard */,
-				C962713C1B6F4BC40017074B /* Images.xcassets */,
-				C96271331B6F4BC40017074B /* dayRoutine.xcdatamodeld */,
+				C95180A81B73B00A009E5237 /* Module */,
+				C95180A61B73AFC9009E5237 /* View */,
+				C95180A71B73AFE1009E5237 /* Controller */,
 				C962712C1B6F4BC40017074B /* Supporting Files */,
 				C962715F1B6F53970017074B /* dayRoutine-Bridging-Header.h */,
 			);
@@ -113,6 +129,9 @@
 		C962712C1B6F4BC40017074B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C962713C1B6F4BC40017074B /* Images.xcassets */,
+				C96271301B6F4BC40017074B /* AppDelegate.h */,
+				C96271311B6F4BC40017074B /* AppDelegate.m */,
 				C962712D1B6F4BC40017074B /* Info.plist */,
 				C962712E1B6F4BC40017074B /* main.m */,
 			);
@@ -240,7 +259,6 @@
 				C96271381B6F4BC40017074B /* ViewController.m in Sources */,
 				C93390B51B72C7EB00A0C653 /* Grid.m in Sources */,
 				C962712F1B6F4BC40017074B /* main.m in Sources */,
-				C962715E1B6F53730017074B /* Activity.m in Sources */,
 				C91980C41B71E2CB009FC73D /* RoutineView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

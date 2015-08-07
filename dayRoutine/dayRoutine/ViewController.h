@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Activity.h"
 #import "RoutineView.h"
 #import "Grid.h"
 
@@ -15,7 +14,10 @@
 
 #define BOTTOM_TAB_BAR_HEIGHT 49
 #define TOP_NAVIGATION_BAR_HEIGHT 64
-#define ASPECT_RATIO 120.0/180.0
+#define HORIZON_SPACE 0
+#define ASPECT_RATIO 180.0/180.0
+
+#define PAGE_LAYOUT_NUMBER 1
 
 @end
 

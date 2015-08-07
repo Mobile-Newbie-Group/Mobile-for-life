@@ -17,10 +17,9 @@
 @property (nonatomic) NSString *subTitle;
 @property (nonatomic) NSMutableArray *activities;
 
+#define DEFAULT_PIC_SCALE_FACTOR 1;
+#define DEFAULT_FRAME_LENGTH 320;
 #define CIRCUIT_INCREMENT 1
-#define CIRCUIT_EXTERNAL_RADIUS 110
-#define CIRCUIT_MIDDLE_RADIUS 100
-#define CIRCUIT_INTERNAL_RADIUS 70
 
 @end
 

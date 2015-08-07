@@ -12,17 +12,40 @@
 @interface RoutineView()
 
 @property (nonatomic) CGPoint centreP;
+@property (nonatomic) CGFloat picScaleFactor;// for image/circule scale
+@property (nonatomic) CGFloat CircuitExternalR;
+@property (nonatomic) CGFloat CircuitMiddleR;
+@property (nonatomic) CGFloat CircuitInternalR;
+
+#define CIRCUIT_EXTERNAL_RADIUS 110
+#define CIRCUIT_MIDDLE_RADIUS 100
+#define CIRCUIT_INTERNAL_RADIUS 70
 
 @end
 
 @implementation RoutineView
+
+#pragma mark - Properties
+
+@synthesize picScaleFactor = _picScaleFactor;
+
+- (CGFloat)picCardScaleFactor
+{
+    if (!_picScaleFactor) _picScaleFactor = DEFAULT_PIC_SCALE_FACTOR;
+    return _picScaleFactor;
+}
+
+- (void)setPicCardScaleFactor:(CGFloat)picScaleFactor
+{
+    _picScaleFactor = picScaleFactor;
+    [self setNeedsDisplay];
+}
 
 - (void)setActivities:(NSMutableArray *)activities
 {
     _activities = activities;
     [self setNeedsDisplay];
 }
-
 
 - (void)setPic:(UIImage *)pic
 {
@@ -43,10 +66,28 @@
     [self setNeedsDisplay];
 }
 
+- (CGFloat)CircuitExternalR
+{
+    if (!_CircuitExternalR) _CircuitExternalR = CIRCUIT_EXTERNAL_RADIUS * self.picScaleFactor;
+    return _CircuitExternalR;
+}
+
+- (CGFloat)CircuitMiddleR
+{
+    if (!_CircuitMiddleR) _CircuitMiddleR = CIRCUIT_MIDDLE_RADIUS * self.picScaleFactor;
+    return _CircuitMiddleR;
+}
+
+- (CGFloat)CircuitInternalR
+{
+    if (!_CircuitInternalR) _CircuitInternalR = CIRCUIT_INTERNAL_RADIUS * self.picScaleFactor;
+    return _CircuitInternalR;
+}
+
 // get the frame centre
 - (CGPoint )centreP
 {
-    return CGPointMake(self.frame.size.width/2, self.frame.size.height * 2 /3 );
+    return CGPointMake(self.frame.size.width/2, self.frame.size.height * 4/7 );
 }
 
 #pragma mark - draw life routine circle
@@ -71,41 +112,36 @@
     [[UIColor blackColor] setStroke];
     [roundedRect stroke];
 
-     
-    [self.pic drawInRect:CGRectMake(self.centreP.x - CIRCUIT_INTERNAL_RADIUS,self.centreP.y-CIRCUIT_INTERNAL_RADIUS,
-                                                       CIRCUIT_INTERNAL_RADIUS*2,CIRCUIT_INTERNAL_RADIUS*2)];
+    [self.pic drawInRect:CGRectMake(self.centreP.x - self.CircuitInternalR,
+                                    self.centreP.y - self.CircuitInternalR,
+                                    self.CircuitInternalR*2,self.CircuitInternalR*2)];
     
+    for (int i = 0;i < [self.activities count];i = i+4){
+        
+        [self drawActivy:[self.activities[i] floatValue]
+                 toAngle:[self.activities[i+1] floatValue]
+               withColor:[self getDefinedColor:[self.activities[i+3] intValue]]];
+
+        [self addActivityLabelFromAngle: [self TimeToRadian:[self.activities[i] floatValue]]
+                                toAngle: [self TimeToRadian:[self.activities[i+1] floatValue]]
+                            withRadious:self.CircuitExternalR
+                             usedbyText:[NSString stringWithFormat:@"%@",self.activities[i+2] ]];
+    }
     
-     for (int i = 0;i < [self.activities count];i = i+4){
-     
-         [self drawActivy:[self.activities[i] floatValue]
-                  toAngle:[self.activities[i+1] floatValue]
-                withColor:[self getDefinedColor:[self.activities[i+3] intValue]]];
-         
-         [self addActivityLabelFromAngle: [self TimeToRadian:[self.activities[i] floatValue]]
-                                 toAngle: [self TimeToRadian:[self.activities[i+1] floatValue]]
-                             withRadious:CIRCUIT_EXTERNAL_RADIUS
-                              usedbyText:[NSString stringWithFormat:@"%@",self.activities[i+2] ]];
-     }
-     
-     [self drawExternalCircuit];
+    [self drawExternalCircuit];
     
     UILabel *titleLabel = [[UILabel alloc] init];
     titleLabel.text = self.title;
     
+    [titleLabel setFont:[UIFont fontWithName:@"Arial-BoldItalicMT" size:20 * self.picScaleFactor]];
     
-    [titleLabel drawTextInRect:CGRectMake(self.centreP.x - [titleLabel.text length]* 20 /2,
-                                         self.centreP.y - CIRCUIT_INTERNAL_RADIUS - CIRCUIT_MIDDLE_RADIUS ,
-                                          [titleLabel.text length]*20,5)];
-    
+    [titleLabel drawTextInRect:CGRectMake(self.centreP.x - [titleLabel.text length] * 10 * self.picScaleFactor,
+                                          self.centreP.y - self.CircuitMiddleR - self.CircuitInternalR,
+                                          [titleLabel.text length] * 20 * self.picScaleFactor , 5 * self.picScaleFactor)];
     titleLabel.text = self.subTitle;
-    [titleLabel drawTextInRect:CGRectMake(self.centreP.x -[titleLabel.text length]* 5,
-                                         self.centreP.y - CIRCUIT_INTERNAL_RADIUS - CIRCUIT_MIDDLE_RADIUS + 15 ,
-                                          [titleLabel.text length]*20 ,5)];
-    
-    
-    
-
+    [titleLabel drawTextInRect:CGRectMake(self.centreP.x -[titleLabel.text length]* 5 * self.picScaleFactor,
+                                         self.centreP.y - self.CircuitInternalR - self.CircuitInternalR  ,
+                                          [titleLabel.text length] * 20* self.picScaleFactor ,5* self.picScaleFactor)];
 }
 
 - (void)addActivityLabelFromAngle:(CGFloat)startAngle
@@ -123,24 +159,23 @@
     UILabel *timeLabel = [[UILabel alloc] init];
     timeLabel.text = text;
     
-    [timeLabel setFont:[UIFont fontWithName:@"Helvetica" size:12]];
+    [timeLabel setFont:[UIFont fontWithName:@"Helvetica" size:12* self.picScaleFactor]];
     
     double labelY = 0;
     double labelX = 0;
     
     if (endAngle < 0 || endAngle > M_PI)
-        labelY = 0-10;
+        labelY = 0-10* self.picScaleFactor;
     else
-        labelY = 10;
+        labelY = 10* self.picScaleFactor;
     
     if (endAngle >  0.5 * M_PI && endAngle < 1.5 * M_PI)
-        labelX =  12 * [text length] ;
+        labelX =  12 * [text length]* self.picScaleFactor ;
     else
         labelX = 0;
     
     [timeLabel drawTextInRect:CGRectMake(bezierPath.currentPoint.x - labelX ,
-                                         bezierPath.currentPoint.y + labelY, [text length] * 20,5)];
-    
+                                         bezierPath.currentPoint.y + labelY, [text length] * 20 * self.picScaleFactor,5 * self.picScaleFactor)];
 }
 
 //get defined color
@@ -160,7 +195,7 @@
         return nil;
 }
 
-//cover time to radian
+//covert time to radian
 - (CGFloat)TimeToRadian:(CGFloat)TimeFloat{return ((TimeFloat/6 -1) * 0.5 * M_PI);}
 
 
@@ -172,8 +207,8 @@
                         toAngle: [self TimeToRadian:endAngle]
                   withFillColor: fillColor
                 withStrokeColor: [UIColor whiteColor]
-            FromExternalRadious: CIRCUIT_INTERNAL_RADIUS
-               toInternalRadius: CIRCUIT_EXTERNAL_RADIUS];
+            FromExternalRadious: self.CircuitInternalR
+               toInternalRadius: self.CircuitExternalR];
 }
 
 //draw the time circuit
@@ -185,19 +220,24 @@
                             toAngle: [self TimeToRadian:s + CIRCUIT_INCREMENT]
                       withFillColor: Nil
                     withStrokeColor: [UIColor blackColor]
-                FromExternalRadious: CIRCUIT_MIDDLE_RADIUS
-                   toInternalRadius: CIRCUIT_EXTERNAL_RADIUS];
+                FromExternalRadious: self.CircuitMiddleR
+                   toInternalRadius: self.CircuitExternalR];
     }
     
     //draw 2 time label
     UILabel *timeLabel = [[UILabel alloc] init];
+    
+    [timeLabel setFont:[UIFont fontWithName:@"Arial" size:15 * self.picScaleFactor]];
+    
     timeLabel.text = @"00:00";
-    [timeLabel drawTextInRect:CGRectMake(self.centreP.x - 22.5,
-                                         self.centreP.y - CIRCUIT_MIDDLE_RADIUS * 0.9, 45,10)];
+    [timeLabel drawTextInRect:CGRectMake(self.centreP.x - 22.5 * self.picScaleFactor ,
+                                         self.centreP.y - self.CircuitMiddleR * 0.9 ,
+                                         45 * self.picScaleFactor, 10 * self.picScaleFactor)];
     
     timeLabel.text = @"12:00AM";
-    [timeLabel drawTextInRect:CGRectMake(self.centreP.x - 31.5,
-                                         self.centreP.y + CIRCUIT_MIDDLE_RADIUS * 0.8, 70,10)];
+    [timeLabel drawTextInRect:CGRectMake(self.centreP.x - 31.5* self.picScaleFactor,
+                                         self.centreP.y + self.CircuitMiddleR * 0.8 ,
+                                         70 * self.picScaleFactor, 10 * self.picScaleFactor)];
     
 }
 
@@ -242,6 +282,7 @@
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
+    self.picScaleFactor = frame.size.height/ DEFAULT_FRAME_LENGTH; //set up the scale factor
     [self setup];
     return self;
 }
