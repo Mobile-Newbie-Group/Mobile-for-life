@@ -193,6 +193,8 @@
         return [UIColor colorWithRed:57/255.0 green:187/255.0 blue:198/255.0 alpha:1.0] ;
     }if (number == 4){
         return [UIColor colorWithRed:188/255.0 green:224/255.0 blue:196/255.0 alpha:1.0] ;
+    }if (number == 5){
+        return [UIColor lightGrayColor] ;
     }else
         return nil;
 }

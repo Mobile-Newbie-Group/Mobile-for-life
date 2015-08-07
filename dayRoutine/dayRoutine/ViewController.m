@@ -137,7 +137,7 @@
     [_testPack addObject: @"Gary"];
     [_testPack addObject: @"One day in Shenzhen"];
     [_testPack addObject: [NSMutableArray arrayWithObjects:
-                           @"0", @"5", @"?sleep", @"0",
+                           @"0", @"5", @"?sleep", @"5",
                            @"5", @"9", @"", @"0",
                            @"9", @"10", @"from HK to Sheko ",@"1",
                            @"10", @"10.25", @"", @"0",
@@ -150,9 +150,9 @@
                            @"18", @"19", @"", @"0",
                            @"19", @"20",@"dinner with team", @"1",
                            @"20", @"21", @"", @"0",
-                           @"21", @"22", @"?handle notes", @"3",
-                           @"22", @"23", @"?drink", @"3",
-                           @"23", @"24", @"?sleep", @"0",nil]];
+                           @"21", @"22", @"?handle notes", @"5",
+                           @"22", @"23", @"?drink", @"5",
+                           @"23", @"24", @"?sleep", @"5",nil]];
     
     [_testPack addObject: @"Hao"];
     [_testPack addObject: @"~Old Enough~"];
