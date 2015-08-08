@@ -1,0 +1,14 @@
+Calendar:
+
+7:00 ~ 8:00, read news time, breakfast
+8:00 ~ 9:00, on the way to office
+9:00 ~ 12:00, working
+12:00~ 13:00, lunch
+13:00 ~ 18:00, working
+18:30 ~ 19:30, dinner with family
+20:00 ~ 22:30, meeting time
+22:30 ~ 23:30, reading, relax
+23:30 ~ 4:30,  sleep
+4:30 ~ 5:30,  thinking
+5:30 ~ 7:00,  sleep
+~ 
