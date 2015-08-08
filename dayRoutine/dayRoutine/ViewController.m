@@ -53,6 +53,9 @@
             }
         }
     
+    //in case the selectedIndex is over the size
+    selectedIndex = selectedIndex >= [self.testPack count]/3 ? 0 : selectedIndex;
+    
     if ([segue isKindOfClass:[UIStoryboardSegue class]]) {
         if ([segue.destinationViewController isKindOfClass:[DetailViewController class]]) {
             DetailViewController *detail = (DetailViewController *) segue.destinationViewController;
@@ -191,6 +194,29 @@
                            @"21", @"22",@"read books", @"4",
                            @"22", @"24",@"laying on bed and thinking", @"2",nil]];
 
+    
+    [_testPack addObject: @"Darwin"];
+    [_testPack addObject: @"1809 - 1882"];
+    [_testPack addObject: [NSMutableArray arrayWithObjects:
+                           @"0", @"7", @"sleeping", @"0",
+                           @"7", @"7.5", @"walking", @"3",
+                           @"7.5", @"8", @"breakfast", @"1",
+                           @"8", @"9.5", @"work", @"2",
+                           @"9.5", @"10.5",@"reading mail", @"4",
+                           @"10.5", @"12", @"work", @"2",
+                           @"12", @"12.5", @"rest", @"3",
+                           @"12.5", @"13", @"lunch", @"1",
+                           @"13", @"14",@"reading news paper", @"4",
+                           @"14", @"15",@"writing mail", @"4",
+                           @"15", @"16", @"sleeping", @"0",
+                           @"16", @"16.5", @"walking", @"3",
+                           @"16.5", @"17.5",@"relaxing work", @"4",
+                           @"17.5", @"18",@"do nothing", @"1",
+                           @"18", @"19",@"reading books", @"1",
+                           @"19", @"20",@"have tea&eggs", @"1",
+                           @"20", @"21",@"play chess", @"1",
+                           @"21", @"22",@"read books", @"4",
+                           @"22", @"24",@"laying on bed and thinking", @"2",nil]];
     
     [_testPack addObject: @"Darwin"];
     [_testPack addObject: @"1809 - 1882"];
