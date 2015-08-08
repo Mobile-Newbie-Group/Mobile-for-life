@@ -301,8 +301,8 @@
     
     if (frame.size.width  >= 320) // display 1 in a row
         result = 1.0;
-    else if (frame.size.width  >= 106) //display 3 in a row
-        result = 0.35;
+   else if (frame.size.width  >= 106) //display 3 in a row
+       result = 0.35;
     else result = self.frame.size.height/ DEFAULT_FRAME_LENGTH;
     
     return result;
