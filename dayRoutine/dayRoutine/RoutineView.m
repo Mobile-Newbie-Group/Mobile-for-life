@@ -139,14 +139,14 @@
     UILabel *titleLabel = [[UILabel alloc] init];
     titleLabel.text = self.title;
     
-    [titleLabel setFont:[UIFont fontWithName:@"Arial-BoldItalicMT" size:16 * self.picScaleFactor]];
+    [titleLabel setFont:[UIFont fontWithName:@"Arial-BoldItalicMT" size:18 * self.picScaleFactor]];
     
     [titleLabel drawTextInRect:CGRectMake(self.centreP.x - [titleLabel.text length] * 5 * self.picScaleFactor,
-                                          self.centreP.y - self.CircuitExternalR - self.CircuitInternalR,
+                                          self.centreP.y - self.CircuitExternalR - self.CircuitMiddleR/2,
                                           [titleLabel.text length] * 20 * self.picScaleFactor , 5 * self.picScaleFactor)];
     titleLabel.text = self.subTitle;
-    [titleLabel drawTextInRect:CGRectMake(self.centreP.x -[titleLabel.text length]* 4 * self.picScaleFactor,
-                                         self.centreP.y - self.CircuitExternalR/2 - self.CircuitMiddleR,
+    [titleLabel drawTextInRect:CGRectMake(self.centreP.x -[titleLabel.text length]* 5 * self.picScaleFactor,
+                                         self.centreP.y - self.CircuitExternalR - self.CircuitMiddleR/3,
                                           [titleLabel.text length] * 20* self.picScaleFactor ,5* self.picScaleFactor)];
 }
 
@@ -290,9 +290,22 @@
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
-    self.picScaleFactor = frame.size.height/ DEFAULT_FRAME_LENGTH; //set up the scale factor
+    self.picScaleFactor = [self getSuitableScaleFactor:frame];
     [self setup];
     return self;
+}
+
+- (CGFloat)getSuitableScaleFactor:(CGRect)frame
+{
+    CGFloat result = 1;
+    
+    if (frame.size.width  >= 320) // display 1 in a row
+        result = 1.0;
+    else if (frame.size.width  >= 106) //display 3 in a row
+        result = 0.35;
+    else result = self.frame.size.height/ DEFAULT_FRAME_LENGTH;
+    
+    return result;
 }
 
 @end
