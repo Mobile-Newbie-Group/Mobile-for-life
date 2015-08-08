@@ -15,6 +15,7 @@
 
 @property (nonatomic) NSMutableArray *testPack;
 @property (nonatomic) NSInteger selectedIndex;
+@property (strong, nonatomic) IBOutlet UIButton *profileButton;
 
 @end
 
@@ -95,6 +96,23 @@
 - (void)awakeFromNib
 {
     [self initiateData];
+    
+    //get defined color
+    RoutineView *rv = [[RoutineView alloc] initWithFrame:self.view.frame];
+    
+    //set UINavigationBar background
+    [[UINavigationBar appearance] setBarTintColor:[rv getDefinedColor:2]];
+    
+    //set UINavigationBar text
+    [[UINavigationBar appearance] setTitleTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:
+      [UIColor whiteColor],
+      NSForegroundColorAttributeName,
+      [NSValue valueWithUIOffset:UIOffsetMake(0, -1)],
+      NSForegroundColorAttributeName,
+      [UIFont fontWithName:@"Chalkduster" size:15.0],
+      NSFontAttributeName,
+      nil]];
 }
 
 #pragma mark - initiate the testing data
@@ -104,12 +122,10 @@
     [self loadPack];
     
    //[self.gameView removeFromSuperview];
-    //self.gameView.frame = CGRectMake(HORIZON_SPACE, TOP_NAVIGATION_BAR_HEIGHT , self.view.frame.size.width - 2 * HORIZON_SPACE, self.view.frame.size.height - TOP_NAVIGATION_BAR_HEIGHT - BOTTOM_TAB_BAR_HEIGHT);
+    self.gameGrid.minimumNumberOfCells = 6;
+    //PAGE_LAYOUT_MAX_NUMBER >[self.testPack count]/3 ? [self.testPack count]/3 : PAGE_LAYOUT_MAX_NUMBER ;
     
-    self.gameGrid.minimumNumberOfCells =
-    PAGE_LAYOUT_MAX_NUMBER >[self.testPack count]/3 ? [self.testPack count]/3 : PAGE_LAYOUT_MAX_NUMBER ;
-    
-    self.gameGrid.size = self.view.bounds.size;
+    self.gameGrid.size = CGRectMake(0, TOP_NAVIGATION_BAR_HEIGHT , self.view.frame.size.width * 2 /3 , self.view.frame.size.height - TOP_NAVIGATION_BAR_HEIGHT - BOTTOM_TAB_BAR_HEIGHT).size;
     
     for (int row = 0; row < [self.gameGrid rowCount]; row++)
        for (int col = 0; col < [self.gameGrid columnCount]; col++){
@@ -128,6 +144,20 @@
        [self.gameView addSubview:rv];
     }
     [self.view addSubview:self.gameView];
+    
+    //add profile at the bottom right
+    NSLog(@"%f,%f,%f,%f",self.profileButton.frame.origin.x,self.profileButton.frame.origin.y,self.profileButton.frame.size.width,self.profileButton.frame.size.height);
+    
+    RoutineView *rv = [[RoutineView alloc] initWithFrame:CGRectMake(213,349,107,107)];
+    NSInteger index = [self.testPack count] -1;
+    rv.title = self.testPack[index-2];
+    rv.subTitle = self.testPack[index-1];
+    rv.activities = self.testPack[index];
+    rv.pic = [UIImage imageNamed:rv.title];
+    
+    //[self.profileButton addSubview:rv];
+    [self.view addSubview:rv];
+    
 }
 
 //input data
@@ -136,23 +166,7 @@
     if (!_testPack) _testPack = [[NSMutableArray alloc] init];
     
     //the pic must be the same as name with a first capital letter
-    [_testPack addObject: @"Alex"];
-    [_testPack addObject: @"Good day"];
-    [_testPack addObject: [NSMutableArray arrayWithObjects:
-                           @"1", @"8", @"sleeping", @"0",
-                           @"8", @"8.5", @"Wash up", @"1",
-                           @"8.5", @"9", @"Drive to office", @"2",
-                           @"9", @"11.5", @"working", @"2",
-                           @"11.5", @"12.5", @"lunch,chat", @"1",
-                           @"12.5", @"18",@"working", @"2",
-                           @"18", @"18.5", @"Drive back home", @"2",
-                           @"18.5", @"20", @"Play with my son", @"4",
-                           @"20", @"22", @"Conference Call", @"2",
-                           @"22", @"23", @"Road Running", @"3",
-                           @"23", @"23.5", @"Shower", @"1",
-                           @"23.5", @"1", @"Relax", @"1",nil]];
-    
-    
+   
     [_testPack addObject: @"Darwin"];
     [_testPack addObject: @"1809 - 1882"];
     [_testPack addObject: [NSMutableArray arrayWithObjects:
@@ -176,6 +190,7 @@
                            @"21", @"22",@"read books", @"4",
                            @"22", @"24",@"laying on bed and thinking", @"2",nil]];
 
+    
     [_testPack addObject: @"Eva"];
     [_testPack addObject: @"C.2015"];
     [_testPack addObject: [NSMutableArray arrayWithObjects:
@@ -192,39 +207,6 @@
                            @"23", @"24", @"wechat,reading", @"3",
                            @"0", @"0.5", @"play candy crash to fall asleep", @"1",nil]];
 
-    
-    
-    [_testPack addObject: @"Franklin"];
-    [_testPack addObject: @"C.1771"];
-    [_testPack addObject: [NSMutableArray arrayWithObjects:
-                            @"5", @"8", @"think about what to do today", @"1",
-                            @"8", @"12", @"working", @"2",
-                            @"12", @"14", @"reading,check account book,lunch", @"1",
-                            @"14", @"18",@"working", @"2",
-                            @"18", @"20", @"supper,music,chat,entertainment", @"3",
-                            @"20", @"22", @"think about what did well today", @"1",
-                            @"22", @"29", @"sleeping", @"0",nil]];
-
-    
-    [_testPack addObject: @"Gary"];
-    [_testPack addObject: @"One day in Shenzhen"];
-    [_testPack addObject: [NSMutableArray arrayWithObjects:
-                           @"0", @"5", @"?sleep", @"5",
-                           @"5", @"9", @"", @"0",
-                           @"9", @"10", @"from HK to Sheko ",@"1",
-                           @"10", @"10.25", @"", @"0",
-                           @"10.25", @"10.5", @"from Sheko to SZ office",@"1",
-                           @"10.5", @"11", @"", @"0",
-                           @"11", @"11.75", @"meet with Cindy",@"2",
-                           @"11.75", @"13.5", @"lunch with team",@"1",
-                           @"13.5", @"14", @"", @"0",
-                           @"14", @"18", @"have fun with team", @"2",
-                           @"18", @"19", @"", @"0",
-                           @"19", @"20",@"dinner with team", @"1",
-                           @"20", @"21", @"", @"0",
-                           @"21", @"22", @"?handle notes", @"5",
-                           @"22", @"23", @"?drink", @"5",
-                           @"23", @"24", @"?sleep", @"5",nil]];
     
     [_testPack addObject: @"Hao"];
     [_testPack addObject: @"~Old Enough~"];
@@ -296,6 +278,55 @@
                            @"21", @"22.5", @"Go home", @"4",
                            @"22.5", @"23.5",@"Night snack", @"1",
                            @"23.5", @"24",@"Shower", @"1",nil]];
+    
+    [_testPack addObject: @"Franklin"];
+    [_testPack addObject: @"C.1771"];
+    [_testPack addObject: [NSMutableArray arrayWithObjects:
+                           @"5", @"8", @"think about what to do today", @"1",
+                           @"8", @"12", @"working", @"2",
+                           @"12", @"14", @"reading,check account book,lunch", @"1",
+                           @"14", @"18",@"working", @"2",
+                           @"18", @"20", @"supper,music,chat,entertainment", @"3",
+                           @"20", @"22", @"think about what did well today", @"1",
+                           @"22", @"29", @"sleeping", @"0",nil]];
+    
+    
+    [_testPack addObject: @"Gary"];
+    [_testPack addObject: @"One day in Shenzhen"];
+    [_testPack addObject: [NSMutableArray arrayWithObjects:
+                           @"0", @"5", @"?sleep", @"5",
+                           @"5", @"9", @"", @"0",
+                           @"9", @"10", @"from HK to Sheko ",@"1",
+                           @"10", @"10.25", @"", @"0",
+                           @"10.25", @"10.5", @"from Sheko to SZ office",@"1",
+                           @"10.5", @"11", @"", @"0",
+                           @"11", @"11.75", @"meet with Cindy",@"2",
+                           @"11.75", @"13.5", @"lunch with team",@"1",
+                           @"13.5", @"14", @"", @"0",
+                           @"14", @"18", @"have fun with team", @"2",
+                           @"18", @"19", @"", @"0",
+                           @"19", @"20",@"dinner with team", @"1",
+                           @"20", @"21", @"", @"0",
+                           @"21", @"22", @"?handle notes", @"5",
+                           @"22", @"23", @"?drink", @"5",
+                           @"23", @"24", @"?sleep", @"5",nil]];
+    
+    [_testPack addObject: @"Alex"];
+    [_testPack addObject: @"Good day"];
+    [_testPack addObject: [NSMutableArray arrayWithObjects:
+                           @"1", @"8", @"sleeping", @"0",
+                           @"8", @"8.5", @"Wash up", @"1",
+                           @"8.5", @"9", @"Drive to office", @"2",
+                           @"9", @"11.5", @"working", @"2",
+                           @"11.5", @"12.5", @"lunch,chat", @"1",
+                           @"12.5", @"18",@"working", @"2",
+                           @"18", @"18.5", @"Drive back home", @"2",
+                           @"18.5", @"20", @"Play with my son", @"4",
+                           @"20", @"22", @"Conference Call", @"2",
+                           @"22", @"23", @"Road Running", @"3",
+                           @"23", @"23.5", @"Shower", @"1",
+                           @"23.5", @"1", @"Relax", @"1",nil]];
+
 }
 
 

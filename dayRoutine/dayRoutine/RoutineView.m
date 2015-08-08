@@ -110,9 +110,9 @@
     [[UIColor whiteColor] setFill];
     UIRectFill(self.bounds);
     
-    [[UIColor grayColor] setStroke];
-    [roundedRect setLineWidth:1.0];
-    [roundedRect stroke];
+    //[[UIColor grayColor] setStroke];
+    //[roundedRect setLineWidth:1.0];
+    //[roundedRect stroke];
 
     [self.pic drawInRect:CGRectMake(self.centreP.x - self.CircuitInternalR,
                                     self.centreP.y - self.CircuitInternalR,

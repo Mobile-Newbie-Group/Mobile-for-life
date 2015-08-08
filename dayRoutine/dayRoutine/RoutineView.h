@@ -17,10 +17,12 @@
 @property (nonatomic) NSString *subTitle;
 @property (nonatomic) NSMutableArray *activities;
 
+- (UIColor*) getDefinedColor :(int) number;
+
 #define DEFAULT_PIC_SCALE_FACTOR 1;
 #define DEFAULT_FRAME_LENGTH 380;
 #define CIRCUIT_INCREMENT 1
-#define DISPLAY_ACTIVITY_LENGTH 10.8
+#define DISPLAY_ACTIVITY_LENGTH 108
 
 @end
 
