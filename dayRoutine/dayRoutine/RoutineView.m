@@ -87,7 +87,7 @@
 // get the frame centre
 - (CGPoint )centreP
 {
-    return CGPointMake(self.frame.size.width /2, self.frame.size.height * 4/7 );
+    return CGPointMake(self.frame.size.width /2, self.frame.size.height * 8/13 );
 }
 
 #pragma mark - draw life routine circle
@@ -108,10 +108,10 @@
 
     //[[UIColor colorWithRed:206/255.0 green:206/255.0 blue:206/255.0 alpha:1.0] setFill];
     [[UIColor whiteColor] setFill];
-    UIRectFill(self.bounds); 
+    UIRectFill(self.bounds);
     
-    [[UIColor blackColor] setStroke];
-    [roundedRect setLineWidth:2.0];
+    [[UIColor grayColor] setStroke];
+    [roundedRect setLineWidth:1.0];
     [roundedRect stroke];
 
     [self.pic drawInRect:CGRectMake(self.centreP.x - self.CircuitInternalR,
@@ -123,11 +123,15 @@
         [self drawActivy:[self.activities[i] floatValue]
                  toAngle:[self.activities[i+1] floatValue]
                withColor:[self getDefinedColor:[self.activities[i+3] intValue]]];
-
-        [self addActivityLabelFromAngle: [self TimeToRadian:[self.activities[i] floatValue]]
-                                toAngle: [self TimeToRadian:[self.activities[i+1] floatValue]]
-                            withRadious:self.CircuitExternalR
-                             usedbyText:[NSString stringWithFormat:@"%@",self.activities[i+2] ]];
+        
+        //if frame is too small, donont draw the detail of activities
+        if (self.frame.size.width > DISPLAY_ACTIVITY_LENGTH){
+             //NSLog(@"%f",self.frame.size.width);
+            [self addActivityLabelFromAngle: [self TimeToRadian:[self.activities[i] floatValue]]
+                                    toAngle: [self TimeToRadian:[self.activities[i+1] floatValue]]
+                                withRadious:self.CircuitExternalR
+                                 usedbyText:[NSString stringWithFormat:@"%@",self.activities[i+2] ]];
+        }
     }
     
     [self drawExternalCircuit];
@@ -135,14 +139,14 @@
     UILabel *titleLabel = [[UILabel alloc] init];
     titleLabel.text = self.title;
     
-    [titleLabel setFont:[UIFont fontWithName:@"Arial-BoldItalicMT" size:20 * self.picScaleFactor]];
+    [titleLabel setFont:[UIFont fontWithName:@"Arial-BoldItalicMT" size:16 * self.picScaleFactor]];
     
     [titleLabel drawTextInRect:CGRectMake(self.centreP.x - [titleLabel.text length] * 5 * self.picScaleFactor,
-                                          self.centreP.y - self.CircuitMiddleR - self.CircuitInternalR,
+                                          self.centreP.y - self.CircuitExternalR - self.CircuitInternalR,
                                           [titleLabel.text length] * 20 * self.picScaleFactor , 5 * self.picScaleFactor)];
     titleLabel.text = self.subTitle;
-    [titleLabel drawTextInRect:CGRectMake(self.centreP.x -[titleLabel.text length]* 5 * self.picScaleFactor,
-                                         self.centreP.y - self.CircuitInternalR *2,
+    [titleLabel drawTextInRect:CGRectMake(self.centreP.x -[titleLabel.text length]* 4 * self.picScaleFactor,
+                                         self.centreP.y - self.CircuitExternalR/2 - self.CircuitMiddleR,
                                           [titleLabel.text length] * 20* self.picScaleFactor ,5* self.picScaleFactor)];
 }
 

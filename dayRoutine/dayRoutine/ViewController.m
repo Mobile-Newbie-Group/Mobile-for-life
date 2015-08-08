@@ -11,7 +11,7 @@
 @interface ViewController ()
 
 @property (strong,nonatomic) Grid *gameGrid;
-@property (strong, nonatomic) IBOutlet UIView *gameView;
+@property (strong,nonatomic) IBOutlet UIView *gameView;
 
 @property (nonatomic) NSMutableArray *testPack;
 
@@ -34,22 +34,69 @@
     return _gameGrid;
 }
 
+//handling the segue
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    //get the index of selected pic
+    CGPoint index = [sender locationInView:self.gameView];
+    NSInteger selectedIndex = 0;
+    
+    for (int row = 0; row < [self.gameGrid rowCount]; row++)
+        for (int col = 0; col < [self.gameGrid columnCount]; col++){
+            
+            CGRect frame =  [self.gameGrid frameOfCellAtRow:row inColumn:col];
+            
+            if (frame.origin.x < index.x && index.x < frame.origin.x + frame.size.width &&
+                frame.origin.y < index.y && index.y < frame.origin.y + frame.size.height) {
+                selectedIndex = row * [self.gameGrid columnCount] + col;
+                break;
+            }
+        }
+    
+    if ([segue isKindOfClass:[UIStoryboardSegue class]]) {
+        if ([segue.destinationViewController isKindOfClass:[DetailViewController class]]) {
+            DetailViewController *detail = (DetailViewController *) segue.destinationViewController;
+            detail.name = self.testPack[selectedIndex * 3];
+            detail.subTitle = self.testPack[selectedIndex * 3+1];
+            detail.activities = self.testPack[selectedIndex * 3 +2];
+        }
+    }
+}
+
+#pragma mark - Gesture Handling
+
+- (IBAction)flip:(UITapGestureRecognizer *)sender {
+    
+    //using gesture to trigger segue
+    [self performSegueWithIdentifier:@"Show Detail" sender:sender];
+    
+}
+
+#pragma mark - page loading
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 }
 
-- (void)viewDidAppear:(BOOL)animated
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (void)awakeFromNib
 {
     [self initiateData];
 }
+
+#pragma mark - initiate the testing data
 
 - (void)initiateData
 {
     [self loadPack];
     
-    [self.gameView removeFromSuperview];
-    self.gameView = [[UIView alloc] initWithFrame:CGRectMake(HORIZON_SPACE, TOP_NAVIGATION_BAR_HEIGHT , self.view.frame.size.width - 2 * HORIZON_SPACE, self.view.frame.size.height - TOP_NAVIGATION_BAR_HEIGHT - BOTTOM_TAB_BAR_HEIGHT)];
+   //[self.gameView removeFromSuperview];
+    //self.gameView.frame = CGRectMake(HORIZON_SPACE, TOP_NAVIGATION_BAR_HEIGHT , self.view.frame.size.width - 2 * HORIZON_SPACE, self.view.frame.size.height - TOP_NAVIGATION_BAR_HEIGHT - BOTTOM_TAB_BAR_HEIGHT);
     
     self.gameGrid.minimumNumberOfCells =
     PAGE_LAYOUT_MAX_NUMBER >[self.testPack count]/3 ? [self.testPack count]/3 : PAGE_LAYOUT_MAX_NUMBER ;
@@ -104,6 +151,79 @@
                            @"21", @"22",@"read books", @"4",
                            @"22", @"24",@"laying on bed and thinking", @"2",nil]];
     
+    [_testPack addObject: @"Darwin"];
+    [_testPack addObject: @"1809 - 1882"];
+    [_testPack addObject: [NSMutableArray arrayWithObjects:
+                           @"0", @"7", @"sleeping", @"0",
+                           @"7", @"7.5", @"walking", @"3",
+                           @"7.5", @"8", @"breakfast", @"1",
+                           @"8", @"9.5", @"work", @"2",
+                           @"9.5", @"10.5",@"reading mail", @"4",
+                           @"10.5", @"12", @"work", @"2",
+                           @"12", @"12.5", @"rest", @"3",
+                           @"12.5", @"13", @"lunch", @"1",
+                           @"13", @"14",@"reading news paper", @"4",
+                           @"14", @"15",@"writing mail", @"4",
+                           @"15", @"16", @"sleeping", @"0",
+                           @"16", @"16.5", @"walking", @"3",
+                           @"16.5", @"17.5",@"relaxing work", @"4",
+                           @"17.5", @"18",@"do nothing", @"1",
+                           @"18", @"19",@"reading books", @"1",
+                           @"19", @"20",@"have tea&eggs", @"1",
+                           @"20", @"21",@"play chess", @"1",
+                           @"21", @"22",@"read books", @"4",
+                           @"22", @"24",@"laying on bed and thinking", @"2",nil]];
+
+    
+    [_testPack addObject: @"Darwin"];
+    [_testPack addObject: @"1809 - 1882"];
+    [_testPack addObject: [NSMutableArray arrayWithObjects:
+                           @"0", @"7", @"sleeping", @"0",
+                           @"7", @"7.5", @"walking", @"3",
+                           @"7.5", @"8", @"breakfast", @"1",
+                           @"8", @"9.5", @"work", @"2",
+                           @"9.5", @"10.5",@"reading mail", @"4",
+                           @"10.5", @"12", @"work", @"2",
+                           @"12", @"12.5", @"rest", @"3",
+                           @"12.5", @"13", @"lunch", @"1",
+                           @"13", @"14",@"reading news paper", @"4",
+                           @"14", @"15",@"writing mail", @"4",
+                           @"15", @"16", @"sleeping", @"0",
+                           @"16", @"16.5", @"walking", @"3",
+                           @"16.5", @"17.5",@"relaxing work", @"4",
+                           @"17.5", @"18",@"do nothing", @"1",
+                           @"18", @"19",@"reading books", @"1",
+                           @"19", @"20",@"have tea&eggs", @"1",
+                           @"20", @"21",@"play chess", @"1",
+                           @"21", @"22",@"read books", @"4",
+                           @"22", @"24",@"laying on bed and thinking", @"2",nil]];
+
+    
+    [_testPack addObject: @"Darwin"];
+    [_testPack addObject: @"1809 - 1882"];
+    [_testPack addObject: [NSMutableArray arrayWithObjects:
+                           @"0", @"7", @"sleeping", @"0",
+                           @"7", @"7.5", @"walking", @"3",
+                           @"7.5", @"8", @"breakfast", @"1",
+                           @"8", @"9.5", @"work", @"2",
+                           @"9.5", @"10.5",@"reading mail", @"4",
+                           @"10.5", @"12", @"work", @"2",
+                           @"12", @"12.5", @"rest", @"3",
+                           @"12.5", @"13", @"lunch", @"1",
+                           @"13", @"14",@"reading news paper", @"4",
+                           @"14", @"15",@"writing mail", @"4",
+                           @"15", @"16", @"sleeping", @"0",
+                           @"16", @"16.5", @"walking", @"3",
+                           @"16.5", @"17.5",@"relaxing work", @"4",
+                           @"17.5", @"18",@"do nothing", @"1",
+                           @"18", @"19",@"reading books", @"1",
+                           @"19", @"20",@"have tea&eggs", @"1",
+                           @"20", @"21",@"play chess", @"1",
+                           @"21", @"22",@"read books", @"4",
+                           @"22", @"24",@"laying on bed and thinking", @"2",nil]];
+
+
+    
     [_testPack addObject: @"Eva"];
     [_testPack addObject: @"C.2015"];
     [_testPack addObject: [NSMutableArray arrayWithObjects:
@@ -132,7 +252,7 @@
                             @"18", @"20", @"supper,music,chat,entertainment", @"3",
                             @"20", @"22", @"think about what did well today", @"1",
                             @"22", @"29", @"sleeping", @"0",nil]];
-    
+
     
     [_testPack addObject: @"Gary"];
     [_testPack addObject: @"One day in Shenzhen"];
@@ -204,9 +324,6 @@
                            @"22.5", @"23.5",@"reading", @"4",nil]];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
 
 @end

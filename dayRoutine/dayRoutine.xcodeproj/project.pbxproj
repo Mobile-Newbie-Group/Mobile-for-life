@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C91980C41B71E2CB009FC73D /* RoutineView.m in Sources */ = {isa = PBXBuildFile; fileRef = C91980C31B71E2CB009FC73D /* RoutineView.m */; };
 		C93390B51B72C7EB00A0C653 /* Grid.m in Sources */ = {isa = PBXBuildFile; fileRef = C93390B41B72C7EB00A0C653 /* Grid.m */; };
+		C956AFAA1B751DA200F71900 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C956AFA91B751DA200F71900 /* DetailViewController.m */; };
 		C962712F1B6F4BC40017074B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C962712E1B6F4BC40017074B /* main.m */; };
 		C96271321B6F4BC40017074B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C96271311B6F4BC40017074B /* AppDelegate.m */; };
 		C96271351B6F4BC40017074B /* dayRoutine.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C96271331B6F4BC40017074B /* dayRoutine.xcdatamodeld */; };
@@ -33,6 +34,8 @@
 		C91980C51B71E2E3009FC73D /* RoutineView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoutineView.h; sourceTree = "<group>"; };
 		C93390B31B72C7EB00A0C653 /* Grid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Grid.h; sourceTree = "<group>"; };
 		C93390B41B72C7EB00A0C653 /* Grid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Grid.m; sourceTree = "<group>"; };
+		C956AFA91B751DA200F71900 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		C956AFAB1B751DC100F71900 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		C96271291B6F4BC40017074B /* dayRoutine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dayRoutine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C962712D1B6F4BC40017074B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C962712E1B6F4BC40017074B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -83,6 +86,8 @@
 			children = (
 				C96271361B6F4BC40017074B /* ViewController.h */,
 				C96271371B6F4BC40017074B /* ViewController.m */,
+				C956AFAB1B751DC100F71900 /* DetailViewController.h */,
+				C956AFA91B751DA200F71900 /* DetailViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -260,6 +265,7 @@
 				C93390B51B72C7EB00A0C653 /* Grid.m in Sources */,
 				C962712F1B6F4BC40017074B /* main.m in Sources */,
 				C91980C41B71E2CB009FC73D /* RoutineView.m in Sources */,
+				C956AFAA1B751DA200F71900 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

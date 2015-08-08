@@ -18,8 +18,9 @@
 @property (nonatomic) NSMutableArray *activities;
 
 #define DEFAULT_PIC_SCALE_FACTOR 1;
-#define DEFAULT_FRAME_LENGTH 320;
+#define DEFAULT_FRAME_LENGTH 380;
 #define CIRCUIT_INCREMENT 1
+#define DISPLAY_ACTIVITY_LENGTH 108
 
 @end
 
