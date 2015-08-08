@@ -14,10 +14,17 @@
 @property (strong,nonatomic) IBOutlet UIView *gameView;
 
 @property (nonatomic) NSMutableArray *testPack;
+@property (nonatomic) NSInteger selectedIndex;
 
 @end
 
 @implementation ViewController
+
+- (NSInteger)selectedIndex
+{
+    if (!_selectedIndex) _selectedIndex = 0;
+    return _selectedIndex;
+}
 
 - (NSMutableArray*) testPack
 {
@@ -37,31 +44,12 @@
 //handling the segue
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-    //get the index of selected pic
-    CGPoint index = [sender locationInView:self.gameView];
-    NSInteger selectedIndex = 0;
-    
-    for (int row = 0; row < [self.gameGrid rowCount]; row++)
-        for (int col = 0; col < [self.gameGrid columnCount]; col++){
-            
-            CGRect frame =  [self.gameGrid frameOfCellAtRow:row inColumn:col];
-            
-            if (frame.origin.x < index.x && index.x < frame.origin.x + frame.size.width &&
-                frame.origin.y < index.y && index.y < frame.origin.y + frame.size.height) {
-                selectedIndex = row * [self.gameGrid columnCount] + col;
-                break;
-            }
-        }
-    
-    //in case the selectedIndex is over the size
-    selectedIndex = selectedIndex >= [self.testPack count]/3 ? 0 : selectedIndex;
-    
     if ([segue isKindOfClass:[UIStoryboardSegue class]]) {
         if ([segue.destinationViewController isKindOfClass:[DetailViewController class]]) {
             DetailViewController *detail = (DetailViewController *) segue.destinationViewController;
-            detail.name = self.testPack[selectedIndex * 3];
-            detail.subTitle = self.testPack[selectedIndex * 3+1];
-            detail.activities = self.testPack[selectedIndex * 3 +2];
+            detail.name = self.testPack[self.selectedIndex * 3];
+            detail.subTitle = self.testPack[self.selectedIndex * 3+1];
+            detail.activities = self.testPack[self.selectedIndex * 3 +2];
         }
     }
 }
@@ -70,9 +58,26 @@
 
 - (IBAction)flip:(UITapGestureRecognizer *)sender {
     
-    //using gesture to trigger segue
-    [self performSegueWithIdentifier:@"Show Detail" sender:sender];
+    //get the index of selected pic
+    CGPoint index = [sender locationInView:self.gameView];
     
+    for (int row = 0; row < [self.gameGrid rowCount]; row++)
+        for (int col = 0; col < [self.gameGrid columnCount]; col++){
+            
+            CGRect frame =  [self.gameGrid frameOfCellAtRow:row inColumn:col];
+            
+            if (frame.origin.x < index.x && index.x < frame.origin.x + frame.size.width &&
+                frame.origin.y < index.y && index.y < frame.origin.y + frame.size.height) {
+                self.selectedIndex = row * [self.gameGrid columnCount] + col;
+                break;
+            }
+        }
+    
+    //in case the selectedIndex is over the size
+    if (self.selectedIndex < [self.testPack count]/3 ){
+        //using gesture to trigger segue
+        [self performSegueWithIdentifier:@"Show Detail" sender:sender];
+    }
 }
 
 #pragma mark - page loading
@@ -147,25 +152,6 @@
                            @"23", @"23.5", @"Shower", @"1",
                            @"23.5", @"1", @"Relax", @"1",nil]];
     
-    [_testPack addObject: @"Xiaodong"];
-    [_testPack addObject: @"Busy Friday"];
-    [_testPack addObject: [NSMutableArray arrayWithObjects:
-                           @"0", @"7", @"Sleeping", @"0",
-                           @"7", @"7.5", @"Breakfast", @"1",
-                           @"7.5", @"9", @"Bus to office", @"2",
-                           @"9", @"11.5", @"Working", @"2",
-                           @"11.5", @"12",@"Lunch", @"1",
-                           @"12", @"13", @"Rest", @"0",
-                           @"13", @"14", @"Working", @"2",
-                           @"14", @"17", @"Meeting", @"2",
-                           @"17", @"17.5",@"Break", @"1",
-                           @"17.5", @"18",@"Bus to gym", @"4",
-                           @"18", @"21", @"Bodybuilding", @"3",
-                           @"21", @"22.5", @"Go home", @"4",
-                           @"22.5", @"23.5",@"Night snack", @"1",
-                           @"23.5", @"24",@"Shower", @"1",
-                           nil]];
-
     
     [_testPack addObject: @"Darwin"];
     [_testPack addObject: @"1809 - 1882"];
@@ -190,55 +176,6 @@
                            @"21", @"22",@"read books", @"4",
                            @"22", @"24",@"laying on bed and thinking", @"2",nil]];
 
-    
-    [_testPack addObject: @"Darwin"];
-    [_testPack addObject: @"1809 - 1882"];
-    [_testPack addObject: [NSMutableArray arrayWithObjects:
-                           @"0", @"7", @"sleeping", @"0",
-                           @"7", @"7.5", @"walking", @"3",
-                           @"7.5", @"8", @"breakfast", @"1",
-                           @"8", @"9.5", @"work", @"2",
-                           @"9.5", @"10.5",@"reading mail", @"4",
-                           @"10.5", @"12", @"work", @"2",
-                           @"12", @"12.5", @"rest", @"3",
-                           @"12.5", @"13", @"lunch", @"1",
-                           @"13", @"14",@"reading news paper", @"4",
-                           @"14", @"15",@"writing mail", @"4",
-                           @"15", @"16", @"sleeping", @"0",
-                           @"16", @"16.5", @"walking", @"3",
-                           @"16.5", @"17.5",@"relaxing work", @"4",
-                           @"17.5", @"18",@"do nothing", @"1",
-                           @"18", @"19",@"reading books", @"1",
-                           @"19", @"20",@"have tea&eggs", @"1",
-                           @"20", @"21",@"play chess", @"1",
-                           @"21", @"22",@"read books", @"4",
-                           @"22", @"24",@"laying on bed and thinking", @"2",nil]];
-    
-    [_testPack addObject: @"Darwin"];
-    [_testPack addObject: @"1809 - 1882"];
-    [_testPack addObject: [NSMutableArray arrayWithObjects:
-                           @"0", @"7", @"sleeping", @"0",
-                           @"7", @"7.5", @"walking", @"3",
-                           @"7.5", @"8", @"breakfast", @"1",
-                           @"8", @"9.5", @"work", @"2",
-                           @"9.5", @"10.5",@"reading mail", @"4",
-                           @"10.5", @"12", @"work", @"2",
-                           @"12", @"12.5", @"rest", @"3",
-                           @"12.5", @"13", @"lunch", @"1",
-                           @"13", @"14",@"reading news paper", @"4",
-                           @"14", @"15",@"writing mail", @"4",
-                           @"15", @"16", @"sleeping", @"0",
-                           @"16", @"16.5", @"walking", @"3",
-                           @"16.5", @"17.5",@"relaxing work", @"4",
-                           @"17.5", @"18",@"do nothing", @"1",
-                           @"18", @"19",@"reading books", @"1",
-                           @"19", @"20",@"have tea&eggs", @"1",
-                           @"20", @"21",@"play chess", @"1",
-                           @"21", @"22",@"read books", @"4",
-                           @"22", @"24",@"laying on bed and thinking", @"2",nil]];
-
-
-    
     [_testPack addObject: @"Eva"];
     [_testPack addObject: @"C.2015"];
     [_testPack addObject: [NSMutableArray arrayWithObjects:
@@ -325,6 +262,40 @@
                            @"21.5", @"22", @"sports", @"3",
                            @"22", @"22.5", @"shower", @"3",
                            @"22.5", @"23.5",@"reading", @"4",nil]];
+    
+    [_testPack addObject: @"Steven"];
+    [_testPack addObject: @"Calendar"];
+    [_testPack addObject: [NSMutableArray arrayWithObjects:
+                           @"7", @"8", @"read news time,breakfast",@"1",
+                           @"8", @"9", @"on the way to office",@"3",
+                           @"9", @"12", @"working",@"2",
+                           @"12", @"13", @"lunch",@"1",
+                           @"13", @"18", @"working", @"2",
+                           @"18.5", @"19.5",@"dinner with family", @"1",
+                           @"20", @"22.5", @"meeting time", @"2",
+                           @"22.5", @"23.5", @"reading,relax", @"4",
+                           @"23.5", @"4.5", @"sleep", @"0",
+                           @"4.5", @"5.5",@"thinking", @"3",
+                           @"5.5", @"7", @"sleep",@"0",nil]];
+
+    
+    [_testPack addObject: @"Xiaodong"];
+    [_testPack addObject: @"Busy Friday"];
+    [_testPack addObject: [NSMutableArray arrayWithObjects:
+                           @"0", @"7", @"Sleeping", @"0",
+                           @"7", @"7.5", @"Breakfast", @"1",
+                           @"7.5", @"9", @"Bus to office", @"2",
+                           @"9", @"11.5", @"Working", @"2",
+                           @"11.5", @"12",@"Lunch", @"1",
+                           @"12", @"13", @"Rest", @"0",
+                           @"13", @"14", @"Working", @"2",
+                           @"14", @"17", @"Meeting", @"2",
+                           @"17", @"17.5",@"Break", @"1",
+                           @"17.5", @"18",@"Bus to gym", @"4",
+                           @"18", @"21", @"Bodybuilding", @"3",
+                           @"21", @"22.5", @"Go home", @"4",
+                           @"22.5", @"23.5",@"Night snack", @"1",
+                           @"23.5", @"24",@"Shower", @"1",nil]];
 }
 
 
