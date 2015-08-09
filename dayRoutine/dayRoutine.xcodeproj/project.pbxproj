@@ -17,6 +17,7 @@
 		C962713B1B6F4BC40017074B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C96271391B6F4BC40017074B /* Main.storyboard */; };
 		C962713D1B6F4BC40017074B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C962713C1B6F4BC40017074B /* Images.xcassets */; };
 		C962714C1B6F4BC50017074B /* dayRoutineTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C962714B1B6F4BC50017074B /* dayRoutineTests.m */; };
+		C9FD5EA41B770EF70036EA69 /* FavDVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FD5EA31B770EF70036EA69 /* FavDVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,8 @@
 		C962714A1B6F4BC50017074B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C962714B1B6F4BC50017074B /* dayRoutineTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = dayRoutineTests.m; sourceTree = "<group>"; };
 		C962715F1B6F53970017074B /* dayRoutine-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "dayRoutine-Bridging-Header.h"; sourceTree = "<group>"; };
+		C9FD5EA31B770EF70036EA69 /* FavDVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavDVC.m; sourceTree = "<group>"; };
+		C9FD5EA51B770F080036EA69 /* FavDVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FavDVC.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +91,8 @@
 				C96271371B6F4BC40017074B /* ViewController.m */,
 				C956AFAB1B751DC100F71900 /* DetailViewController.h */,
 				C956AFA91B751DA200F71900 /* DetailViewController.m */,
+				C9FD5EA51B770F080036EA69 /* FavDVC.h */,
+				C9FD5EA31B770EF70036EA69 /* FavDVC.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -264,6 +269,7 @@
 				C96271381B6F4BC40017074B /* ViewController.m in Sources */,
 				C93390B51B72C7EB00A0C653 /* Grid.m in Sources */,
 				C962712F1B6F4BC40017074B /* main.m in Sources */,
+				C9FD5EA41B770EF70036EA69 /* FavDVC.m in Sources */,
 				C91980C41B71E2CB009FC73D /* RoutineView.m in Sources */,
 				C956AFAA1B751DA200F71900 /* DetailViewController.m in Sources */,
 			);

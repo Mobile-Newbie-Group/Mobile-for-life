@@ -12,20 +12,14 @@
 
 @property (strong,nonatomic) Grid *gameGrid;
 @property (strong,nonatomic) IBOutlet UIView *gameView;
+@property (strong, nonatomic) IBOutlet UIView *profileView;
 
 @property (nonatomic) NSMutableArray *testPack;
 @property (nonatomic) NSInteger selectedIndex;
-@property (strong, nonatomic) IBOutlet UIButton *profileButton;
 
 @end
 
 @implementation ViewController
-
-- (NSInteger)selectedIndex
-{
-    if (!_selectedIndex) _selectedIndex = 0;
-    return _selectedIndex;
-}
 
 - (NSMutableArray*) testPack
 {
@@ -48,9 +42,13 @@
     if ([segue isKindOfClass:[UIStoryboardSegue class]]) {
         if ([segue.destinationViewController isKindOfClass:[DetailViewController class]]) {
             DetailViewController *detail = (DetailViewController *) segue.destinationViewController;
+            
+            NSLog (@"%ld",self.selectedIndex * 3);
+            
             detail.name = self.testPack[self.selectedIndex * 3];
             detail.subTitle = self.testPack[self.selectedIndex * 3+1];
             detail.activities = self.testPack[self.selectedIndex * 3 +2];
+            self.selectedIndex = PAGE_LAYOUT_MAX_NUMBER;
         }
     }
 }
@@ -62,23 +60,29 @@
     //get the index of selected pic
     CGPoint index = [sender locationInView:self.gameView];
     
-    for (int row = 0; row < [self.gameGrid rowCount]; row++)
-        for (int col = 0; col < [self.gameGrid columnCount]; col++){
-            
-            CGRect frame =  [self.gameGrid frameOfCellAtRow:row inColumn:col];
-            
-            if (frame.origin.x < index.x && index.x < frame.origin.x + frame.size.width &&
-                frame.origin.y < index.y && index.y < frame.origin.y + frame.size.height) {
-                self.selectedIndex = row * [self.gameGrid columnCount] + col;
-                break;
-            }
-        }
+    //if tapping the the profile pic, display the last file
+    if (index.x > self.gameView.frame.origin.x + self.gameView.frame.size.width &&
+        index.y > self.gameView.frame.origin.y +self.gameView.frame.size.height){
+        
+        self.selectedIndex = [self.testPack count]/3 -1;
+        
+    }else {
     
-    //in case the selectedIndex is over the size
-    if (self.selectedIndex < [self.testPack count]/3 ){
-        //using gesture to trigger segue
-        [self performSegueWithIdentifier:@"Show Detail" sender:sender];
+        for (int row = 0; row < [self.gameGrid rowCount]; row++)
+            for (int col = 0; col < [self.gameGrid columnCount]; col++){
+                
+                CGRect frame =  [self.gameGrid frameOfCellAtRow:row inColumn:col];
+                
+                if (frame.origin.x < index.x && index.x < frame.origin.x + frame.size.width &&
+                    frame.origin.y < index.y && index.y < frame.origin.y + frame.size.height) {
+                    self.selectedIndex = row * [self.gameGrid columnCount] + col;
+                    break;
+                }
+            }
     }
+
+    [self performSegueWithIdentifier:@"Show Detail" sender:sender];
+    
 }
 
 #pragma mark - page loading
@@ -103,9 +107,14 @@
     //set UINavigationBar background
     [[UINavigationBar appearance] setBarTintColor:[rv getDefinedColor:2]];
     
+    //set tint color
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    
     //set UINavigationBar text
     [[UINavigationBar appearance] setTitleTextAttributes:
      [NSDictionary dictionaryWithObjectsAndKeys:
+      [UIColor whiteColor],
+      NSForegroundColorAttributeName,
       [UIColor whiteColor],
       NSForegroundColorAttributeName,
       [NSValue valueWithUIOffset:UIOffsetMake(0, -1)],
@@ -113,6 +122,13 @@
       [UIFont fontWithName:@"Chalkduster" size:15.0],
       NSFontAttributeName,
       nil]];
+    
+    
+    
+    
+    //set UITabBar
+    //[[UITabBar appearance] setBarTintColor:[rv getDefinedColor:5]];
+    
 }
 
 #pragma mark - initiate the testing data
@@ -125,7 +141,7 @@
     self.gameGrid.minimumNumberOfCells = 6;
     //PAGE_LAYOUT_MAX_NUMBER >[self.testPack count]/3 ? [self.testPack count]/3 : PAGE_LAYOUT_MAX_NUMBER ;
     
-    self.gameGrid.size = CGRectMake(0, TOP_NAVIGATION_BAR_HEIGHT , self.view.frame.size.width * 2 /3 , self.view.frame.size.height - TOP_NAVIGATION_BAR_HEIGHT - BOTTOM_TAB_BAR_HEIGHT).size;
+    self.gameGrid.size = CGRectMake(0, TOP_NAVIGATION_BAR_HEIGHT , self.view.frame.size.width * 2 /3 , 107*3).size;
     
     for (int row = 0; row < [self.gameGrid rowCount]; row++)
        for (int col = 0; col < [self.gameGrid columnCount]; col++){
@@ -146,8 +162,6 @@
     [self.view addSubview:self.gameView];
     
     //add profile at the bottom right
-    NSLog(@"%f,%f,%f,%f",self.profileButton.frame.origin.x,self.profileButton.frame.origin.y,self.profileButton.frame.size.width,self.profileButton.frame.size.height);
-    
     RoutineView *rv = [[RoutineView alloc] initWithFrame:CGRectMake(213,349,107,107)];
     NSInteger index = [self.testPack count] -1;
     rv.title = self.testPack[index-2];
@@ -155,8 +169,8 @@
     rv.activities = self.testPack[index];
     rv.pic = [UIImage imageNamed:rv.title];
     
-    //[self.profileButton addSubview:rv];
     [self.view addSubview:rv];
+    [self.view addSubview:self.profileView];
     
 }
 

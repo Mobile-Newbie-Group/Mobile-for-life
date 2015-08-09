@@ -41,18 +41,16 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     //[self.view removeFromSuperview];
-    self.view.frame = CGRectMake(HORIZON_SPACE, TOP_NAVIGATION_BAR_HEIGHT , self.view.frame.size.width - 2 * HORIZON_SPACE, self.view.frame.size.height - TOP_NAVIGATION_BAR_HEIGHT - BOTTOM_TAB_BAR_HEIGHT);
+    self.view.frame = CGRectMake(HORIZON_SPACE, 0 , self.view.frame.size.width - 2 * HORIZON_SPACE, self.view.frame.size.height - TOP_NAVIGATION_BAR_HEIGHT - BOTTOM_TAB_BAR_HEIGHT);
     
     RoutineView *rv = [[RoutineView alloc] initWithFrame:self.view.frame];
     
-    rv.title = self.name;
+    self.navigationItem.title =  self.name;
     rv.subTitle = self.subTitle;
     rv.activities = self.activities;
-    rv.pic = [UIImage imageNamed:rv.title];
+    rv.pic = [UIImage imageNamed:self.name];
     
     [self.view addSubview:rv];
-
-
 }
 
 

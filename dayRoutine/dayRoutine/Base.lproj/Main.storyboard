@@ -4,30 +4,13 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
-        <!--Item 2-->
-        <scene sceneID="0Ot-ge-lKr">
-            <objects>
-                <viewController id="oDd-u2-eWH" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="mWu-FT-JSM"/>
-                        <viewControllerLayoutGuide type="bottom" id="Gug-pT-cmn"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="puH-fT-o4A">
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="DdI-kB-6uP"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qgR-ze-GJh" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-504" y="652"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="xWC-YI-p2z">
             <objects>
                 <tabBarController id="w6o-bC-ZWR" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="f4b-6T-eA7"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="4xA-ea-a6T">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -35,30 +18,31 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="xJC-1d-Ov8" kind="relationship" relationship="viewControllers" id="ntO-Ph-JNz"/>
-                        <segue destination="oDd-u2-eWH" kind="relationship" relationship="viewControllers" id="pCx-X5-MLw"/>
+                        <segue destination="xJC-1d-Ov8" kind="relationship" relationship="viewControllers" id="yQ4-UP-9UE"/>
+                        <segue destination="G92-5J-hhn" kind="relationship" relationship="viewControllers" id="0A5-eD-Lkg"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xaB-dh-iC5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1341" y="324"/>
+            <point key="canvasLocation" x="-2008.5" y="341"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="jos-gr-Ovh">
             <objects>
                 <navigationController id="xJC-1d-Ov8" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="pkW-Un-fbx"/>
+                    <tabBarItem key="tabBarItem" systemItem="contacts" id="pkW-Un-fbx"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="9u5-PB-8R5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="h1H-Hr-msm"/>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="JK3-gS-VCN"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="isL-uR-r1J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-504" y="-62"/>
+            <point key="canvasLocation" x="-990" y="6"/>
         </scene>
         <!--Life is simple, but not easy!-->
         <scene sceneID="ufC-wZ-h7g">
@@ -69,7 +53,7 @@
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n8e-21-tjh">
@@ -84,25 +68,37 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="61p-EB-H09">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Funny statistics about human life..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4mA-Mt-Qgy">
+                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="11"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="8" y="68" width="91" height="40"/>
+                                        </variation>
+                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DashBoard" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4di-iH-FSm">
                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                         <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="15"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
+                                        <color key="shadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <variation key="widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="8" y="77" width="91" height="21"/>
+                                            <rect key="frame" x="8" y="39" width="91" height="21"/>
                                         </variation>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <variation key="default">
                                     <mask key="subviews">
+                                        <exclude reference="4mA-Mt-Qgy"/>
                                         <exclude reference="4di-iH-FSm"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="213" y="0.0" width="107" height="175"/>
                                     <mask key="subviews">
+                                        <include reference="4mA-Mt-Qgy"/>
                                         <include reference="4di-iH-FSm"/>
                                     </mask>
                                 </variation>
@@ -110,25 +106,37 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BvK-tk-hDy">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Life experience sharing..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qCO-vM-tB0">
+                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="11"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="8" y="80" width="91" height="40"/>
+                                        </variation>
+                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Life Story" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rt6-Nj-gwB">
                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                         <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
+                                        <color key="shadowColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <variation key="widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="8" y="77" width="91" height="21"/>
+                                            <rect key="frame" x="8" y="51" width="91" height="21"/>
                                         </variation>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <variation key="default">
                                     <mask key="subviews">
+                                        <exclude reference="qCO-vM-tB0"/>
                                         <exclude reference="Rt6-Nj-gwB"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="213" y="174" width="107" height="175"/>
                                     <mask key="subviews">
+                                        <include reference="qCO-vM-tB0"/>
                                         <include reference="Rt6-Nj-gwB"/>
                                     </mask>
                                 </variation>
@@ -138,6 +146,7 @@
                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="50" y="0.0" width="114" height="29"/>
                                 </variation>
@@ -145,39 +154,50 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RdC-Bo-t2A">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quiz: guess who?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lNe-3Y-gOg">
+                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="11"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="61" y="37" width="91" height="40"/>
+                                        </variation>
+                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daily Icon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N8h-Nt-UPr">
                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                         <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
+                                        <color key="shadowColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <variation key="widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="62" y="42" width="91" height="21"/>
+                                            <rect key="frame" x="61" y="20" width="91" height="21"/>
                                         </variation>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pvG-wx-WA4">
-                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                        <state key="normal">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <variation key="widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="93" y="16" width="74" height="73"/>
-                                        </variation>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.44705882352941173" green="0.68235294117647061" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
                                 <variation key="default">
                                     <mask key="subviews">
+                                        <exclude reference="lNe-3Y-gOg"/>
                                         <exclude reference="N8h-Nt-UPr"/>
-                                        <exclude reference="pvG-wx-WA4"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="0.0" y="349" width="213" height="106"/>
                                     <mask key="subviews">
+                                        <include reference="lNe-3Y-gOg"/>
                                         <include reference="N8h-Nt-UPr"/>
-                                        <include reference="pvG-wx-WA4"/>
                                     </mask>
                                 </variation>
+                            </view>
+                            <view alpha="0.10000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yTC-QS-qLT">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="213" y="349" width="107" height="107"/>
+                                </variation>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="aYE-Dx-dLz" appends="YES" id="XS0-9q-dZN"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -188,6 +208,7 @@
                                 <exclude reference="BvK-tk-hDy"/>
                                 <exclude reference="VJN-EL-YhN"/>
                                 <exclude reference="RdC-Bo-t2A"/>
+                                <exclude reference="yTC-QS-qLT"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -197,13 +218,14 @@
                                 <include reference="BvK-tk-hDy"/>
                                 <include reference="VJN-EL-YhN"/>
                                 <include reference="RdC-Bo-t2A"/>
+                                <include reference="yTC-QS-qLT"/>
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Life is simple, but not easy!" id="Itc-Wg-gZc"/>
                     <connections>
                         <outlet property="gameView" destination="n8e-21-tjh" id="ltB-vR-fLb"/>
-                        <outlet property="profileButton" destination="pvG-wx-WA4" id="tlJ-ZZ-U9q"/>
+                        <outlet property="profileView" destination="yTC-QS-qLT" id="dzy-5o-BHk"/>
                         <segue destination="uVB-jB-h5a" kind="show" identifier="Show Detail" id="9AN-KM-ge0"/>
                     </connections>
                 </viewController>
@@ -214,7 +236,42 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="208.5" y="-63"/>
+            <point key="canvasLocation" x="-235.5" y="6"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="5p3-dv-sGK">
+            <objects>
+                <navigationController id="G92-5J-hhn" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="86J-j9-jS4"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tbB-zb-TRg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="wUH-HB-UeX" kind="relationship" relationship="rootViewController" id="d4L-D3-jgp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hfU-Ex-xH3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-982.5" y="693"/>
+        </scene>
+        <!--Gary Derr-->
+        <scene sceneID="r2W-hY-eJI">
+            <objects>
+                <viewController id="wUH-HB-UeX" customClass="FavDvc" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UnG-Z7-PND"/>
+                        <viewControllerLayoutGuide type="bottom" id="NgF-x1-UfT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bo8-eZ-M2Z">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Gary Derr" id="Ha7-fb-Iam"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="daX-Sp-xtB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-235.5" y="693"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="Tzo-rv-6bE">
@@ -225,7 +282,7 @@
                         <viewControllerLayoutGuide type="bottom" id="2Ux-wC-W1W"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8cb-O3-yRI">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -233,7 +290,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hta-bt-pB2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="874" y="-62"/>
+            <point key="canvasLocation" x="517.5" y="6"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="Tuj-K0-hGE">
+            <objects>
+                <viewController id="T45-qc-Fpe" customClass="DetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Hgg-yu-0uq"/>
+                        <viewControllerLayoutGuide type="bottom" id="1A7-gf-f11"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eGC-yh-L8w">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="jQ2-OV-aMn"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GrZ-7a-Sn2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="517.5" y="6"/>
         </scene>
     </scenes>
 </document>
