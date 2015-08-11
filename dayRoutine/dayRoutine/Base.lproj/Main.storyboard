@@ -264,6 +264,7 @@
                         <viewControllerLayoutGuide type="bottom" id="NgF-x1-UfT"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="bo8-eZ-M2Z">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -301,7 +302,7 @@
                         <viewControllerLayoutGuide type="bottom" id="1A7-gf-f11"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="eGC-yh-L8w">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
