@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		69F44B271B84707D0034533B /* Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F44B261B84707D0034533B /* Color.m */; };
+		69F44B2A1B84707D0034533B /* Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F44B291B84707D0034533B /* Profile.m */; };
+		69F44B2D1B84707D0034533B /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F44B2C1B84707D0034533B /* Activity.m */; };
 		C91980C41B71E2CB009FC73D /* RoutineView.m in Sources */ = {isa = PBXBuildFile; fileRef = C91980C31B71E2CB009FC73D /* RoutineView.m */; };
 		C93390B51B72C7EB00A0C653 /* Grid.m in Sources */ = {isa = PBXBuildFile; fileRef = C93390B41B72C7EB00A0C653 /* Grid.m */; };
 		C951272F1B82DA23003E042A /* aController.m in Sources */ = {isa = PBXBuildFile; fileRef = C951272E1B82DA23003E042A /* aController.m */; };
@@ -32,6 +35,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		69F44B251B84707D0034533B /* Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Color.h; path = dayRoutine/Color.h; sourceTree = "<group>"; };
+		69F44B261B84707D0034533B /* Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Color.m; path = dayRoutine/Color.m; sourceTree = "<group>"; };
+		69F44B281B84707D0034533B /* Profile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Profile.h; path = dayRoutine/Profile.h; sourceTree = "<group>"; };
+		69F44B291B84707D0034533B /* Profile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Profile.m; path = dayRoutine/Profile.m; sourceTree = "<group>"; };
+		69F44B2B1B84707D0034533B /* Activity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Activity.h; path = dayRoutine/Activity.h; sourceTree = "<group>"; };
+		69F44B2C1B84707D0034533B /* Activity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Activity.m; path = dayRoutine/Activity.m; sourceTree = "<group>"; };
 		C91980C31B71E2CB009FC73D /* RoutineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoutineView.m; sourceTree = "<group>"; };
 		C91980C51B71E2E3009FC73D /* RoutineView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoutineView.h; sourceTree = "<group>"; };
 		C93390B31B72C7EB00A0C653 /* Grid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Grid.h; sourceTree = "<group>"; };
@@ -113,6 +122,12 @@
 		C96271201B6F4BC40017074B = {
 			isa = PBXGroup;
 			children = (
+				69F44B2B1B84707D0034533B /* Activity.h */,
+				69F44B2C1B84707D0034533B /* Activity.m */,
+				69F44B281B84707D0034533B /* Profile.h */,
+				69F44B291B84707D0034533B /* Profile.m */,
+				69F44B251B84707D0034533B /* Color.h */,
+				69F44B261B84707D0034533B /* Color.m */,
 				C962712B1B6F4BC40017074B /* dayRoutine */,
 				C96271481B6F4BC50017074B /* dayRoutineTests */,
 				C962712A1B6F4BC40017074B /* Products */,
@@ -270,8 +285,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C96271351B6F4BC40017074B /* dayRoutine.xcdatamodeld in Sources */,
+				69F44B2A1B84707D0034533B /* Profile.m in Sources */,
 				C96271321B6F4BC40017074B /* AppDelegate.m in Sources */,
 				C96271381B6F4BC40017074B /* ViewController.m in Sources */,
+				69F44B2D1B84707D0034533B /* Activity.m in Sources */,
+				69F44B271B84707D0034533B /* Color.m in Sources */,
 				C93390B51B72C7EB00A0C653 /* Grid.m in Sources */,
 				C962712F1B6F4BC40017074B /* main.m in Sources */,
 				C951272F1B82DA23003E042A /* aController.m in Sources */,

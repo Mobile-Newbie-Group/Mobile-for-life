@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<<<<<<< Updated upstream
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14E46" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+=======
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14D136" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+>>>>>>> Stashed changes
     <entity name="Activity" representedClassName="Activity" syncable="YES">
         <attribute name="activity" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="endT" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
@@ -13,6 +17,7 @@
         <relationship name="activity" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Activity" inverseName="color" inverseEntity="Activity" syncable="YES"/>
     </entity>
     <entity name="Profile" representedClassName="Profile" syncable="YES">
+<<<<<<< Updated upstream
         <attribute name="account" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="age" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="descrip" optional="YES" attributeType="String" syncable="YES"/>
@@ -20,11 +25,21 @@
         <attribute name="professional" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="psw" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="sex" optional="YES" attributeType="Boolean" syncable="YES"/>
+=======
+        <attribute name="descrip" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pic" optional="YES" attributeType="Binary" syncable="YES"/>
+>>>>>>> Stashed changes
         <relationship name="activity" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Activity" inverseName="profile" inverseEntity="Activity" syncable="YES"/>
     </entity>
     <elements>
         <element name="Activity" positionX="-1647" positionY="-4771" width="128" height="118"/>
+<<<<<<< Updated upstream
         <element name="Color" positionX="-1872" positionY="-4705" width="126" height="88"/>
         <element name="Profile" positionX="-1649" positionY="-4554" width="128" height="163"/>
+=======
+        <element name="Color" positionX="-1874" positionY="-4705" width="128" height="88"/>
+        <element name="Profile" positionX="-1649" positionY="-4554" width="128" height="103"/>
+>>>>>>> Stashed changes
     </elements>
 </model>
