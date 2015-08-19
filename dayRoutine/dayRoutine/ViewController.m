@@ -184,6 +184,9 @@
     [_testPack addObject: @"Darwin"];
     [_testPack addObject: @"1809 - 1882"];
     [_testPack addObject: [NSMutableArray arrayWithObjects:
+                           
+                              @"22", @"4",@"laying on bed and thinking", @"2",nil]];/*
+                           
                            @"0", @"7", @"sleeping", @"0",
                            @"7", @"7.5", @"walking", @"3",
                            @"7.5", @"8", @"breakfast", @"1",
@@ -202,7 +205,7 @@
                            @"19", @"20",@"have tea&eggs", @"1",
                            @"20", @"21",@"play chess", @"1",
                            @"21", @"22",@"read books", @"4",
-                           @"22", @"24",@"laying on bed and thinking", @"2",nil]];
+                           @"22", @"24",@"laying on bed and thinking", @"2",nil]];*/
 
     
     [_testPack addObject: @"Eva"];
