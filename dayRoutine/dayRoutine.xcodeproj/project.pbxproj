@@ -9,10 +9,11 @@
 /* Begin PBXBuildFile section */
 		C91980C41B71E2CB009FC73D /* RoutineView.m in Sources */ = {isa = PBXBuildFile; fileRef = C91980C31B71E2CB009FC73D /* RoutineView.m */; };
 		C93390B51B72C7EB00A0C653 /* Grid.m in Sources */ = {isa = PBXBuildFile; fileRef = C93390B41B72C7EB00A0C653 /* Grid.m */; };
+		C951272F1B82DA23003E042A /* aController.m in Sources */ = {isa = PBXBuildFile; fileRef = C951272E1B82DA23003E042A /* aController.m */; };
 		C956AFAA1B751DA200F71900 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C956AFA91B751DA200F71900 /* DetailViewController.m */; };
+		C95FAEC81B877C04002AD67E /* dayRoutine.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C95FAEC61B877C04002AD67E /* dayRoutine.xcdatamodeld */; };
 		C962712F1B6F4BC40017074B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C962712E1B6F4BC40017074B /* main.m */; };
 		C96271321B6F4BC40017074B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C96271311B6F4BC40017074B /* AppDelegate.m */; };
-		C96271351B6F4BC40017074B /* dayRoutine.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C96271331B6F4BC40017074B /* dayRoutine.xcdatamodeld */; };
 		C96271381B6F4BC40017074B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C96271371B6F4BC40017074B /* ViewController.m */; };
 		C962713B1B6F4BC40017074B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C96271391B6F4BC40017074B /* Main.storyboard */; };
 		C962713D1B6F4BC40017074B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C962713C1B6F4BC40017074B /* Images.xcassets */; };
@@ -35,14 +36,16 @@
 		C91980C51B71E2E3009FC73D /* RoutineView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoutineView.h; sourceTree = "<group>"; };
 		C93390B31B72C7EB00A0C653 /* Grid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Grid.h; sourceTree = "<group>"; };
 		C93390B41B72C7EB00A0C653 /* Grid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Grid.m; sourceTree = "<group>"; };
+		C951272D1B82DA23003E042A /* aController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aController.h; sourceTree = "<group>"; };
+		C951272E1B82DA23003E042A /* aController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = aController.m; sourceTree = "<group>"; };
 		C956AFA91B751DA200F71900 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		C956AFAB1B751DC100F71900 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		C95FAEC71B877C04002AD67E /* dayRoutine1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = dayRoutine1.xcdatamodel; sourceTree = "<group>"; };
 		C96271291B6F4BC40017074B /* dayRoutine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dayRoutine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C962712D1B6F4BC40017074B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C962712E1B6F4BC40017074B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C96271301B6F4BC40017074B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C96271311B6F4BC40017074B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		C96271341B6F4BC40017074B /* dayRoutine.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = dayRoutine.xcdatamodel; sourceTree = "<group>"; };
 		C96271361B6F4BC40017074B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		C96271371B6F4BC40017074B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		C962713A1B6F4BC40017074B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -87,6 +90,8 @@
 		C95180A71B73AFE1009E5237 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C951272D1B82DA23003E042A /* aController.h */,
+				C951272E1B82DA23003E042A /* aController.m */,
 				C96271361B6F4BC40017074B /* ViewController.h */,
 				C96271371B6F4BC40017074B /* ViewController.m */,
 				C956AFAB1B751DC100F71900 /* DetailViewController.h */,
@@ -100,7 +105,7 @@
 		C95180A81B73B00A009E5237 /* Module */ = {
 			isa = PBXGroup;
 			children = (
-				C96271331B6F4BC40017074B /* dayRoutine.xcdatamodeld */,
+				C95FAEC61B877C04002AD67E /* dayRoutine.xcdatamodeld */,
 			);
 			name = Module;
 			sourceTree = "<group>";
@@ -264,11 +269,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C96271351B6F4BC40017074B /* dayRoutine.xcdatamodeld in Sources */,
 				C96271321B6F4BC40017074B /* AppDelegate.m in Sources */,
 				C96271381B6F4BC40017074B /* ViewController.m in Sources */,
+				C95FAEC81B877C04002AD67E /* dayRoutine.xcdatamodeld in Sources */,
 				C93390B51B72C7EB00A0C653 /* Grid.m in Sources */,
 				C962712F1B6F4BC40017074B /* main.m in Sources */,
+				C951272F1B82DA23003E042A /* aController.m in Sources */,
 				C9FD5EA41B770EF70036EA69 /* FavDVC.m in Sources */,
 				C91980C41B71E2CB009FC73D /* RoutineView.m in Sources */,
 				C956AFAA1B751DA200F71900 /* DetailViewController.m in Sources */,
@@ -477,13 +483,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		C96271331B6F4BC40017074B /* dayRoutine.xcdatamodeld */ = {
+		C95FAEC61B877C04002AD67E /* dayRoutine.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				C96271341B6F4BC40017074B /* dayRoutine.xcdatamodel */,
+				C95FAEC71B877C04002AD67E /* dayRoutine1.xcdatamodel */,
 			);
-			currentVersion = C96271341B6F4BC40017074B /* dayRoutine.xcdatamodel */;
-			path = dayRoutine.xcdatamodeld;
+			currentVersion = C95FAEC71B877C04002AD67E /* dayRoutine1.xcdatamodel */;
+			name = dayRoutine.xcdatamodeld;
+			path = dayRoutine1.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

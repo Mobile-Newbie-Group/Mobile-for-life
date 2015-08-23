@@ -17,6 +17,7 @@
 @property (nonatomic) NSString *subTitle;
 @property (nonatomic) NSMutableArray *activities;
 
+
 - (UIColor*) getDefinedColor :(int) number;
 
 #define DEFAULT_PIC_SCALE_FACTOR 1;
