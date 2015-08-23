@@ -10,12 +10,18 @@
 
 @interface ViewController ()
 
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+
 @property (strong,nonatomic) Grid *gameGrid;
 @property (strong,nonatomic) IBOutlet UIView *gameView;
 @property (strong, nonatomic) IBOutlet UIView *profileView;
 
 @property (nonatomic) NSMutableArray *testPack;
 @property (nonatomic) NSInteger selectedIndex;
+
+
+
+
 
 @end
 
@@ -99,7 +105,6 @@
 
 - (void)awakeFromNib
 {
-    [self initiateData];
     
     //get defined color
     RoutineView *rv = [[RoutineView alloc] initWithFrame:self.view.frame];
@@ -122,13 +127,14 @@
       [UIFont fontWithName:@"Chalkduster" size:15.0],
       NSFontAttributeName,
       nil]];
-    
-    
-    
-    
+
     //set UITabBar
     //[[UITabBar appearance] setBarTintColor:[rv getDefinedColor:5]];
+}
+
+-(void)viewDidAppear:(BOOL)animated{
     
+    [self initiateData];
 }
 
 #pragma mark - initiate the testing data
@@ -137,11 +143,11 @@
 {
     [self loadPack];
     
-   //[self.gameView removeFromSuperview];
     self.gameGrid.minimumNumberOfCells = 6;
     //PAGE_LAYOUT_MAX_NUMBER >[self.testPack count]/3 ? [self.testPack count]/3 : PAGE_LAYOUT_MAX_NUMBER ;
     
-    self.gameGrid.size = CGRectMake(0, TOP_NAVIGATION_BAR_HEIGHT , self.view.frame.size.width * 2 /3 , 107*3).size;
+    self.gameGrid.size = CGRectMake(0, TOP_NAVIGATION_BAR_HEIGHT , self.view.frame.size.width * 2 /3 , self.gameView.frame.size.height).size;
+    
     
     for (int row = 0; row < [self.gameGrid rowCount]; row++)
        for (int col = 0; col < [self.gameGrid columnCount]; col++){
@@ -162,7 +168,7 @@
     [self.view addSubview:self.gameView];
     
     //add profile at the bottom right
-    RoutineView *rv = [[RoutineView alloc] initWithFrame:CGRectMake(213,349,107,107)];
+    RoutineView *rv = [[RoutineView alloc] initWithFrame:self.profileView.frame]; //CGRectMake(213,349,107,107)
     NSInteger index = [self.testPack count] -1;
     rv.title = self.testPack[index-2];
     rv.subTitle = self.testPack[index-1];
@@ -184,9 +190,6 @@
     [_testPack addObject: @"Darwin"];
     [_testPack addObject: @"1809 - 1882"];
     [_testPack addObject: [NSMutableArray arrayWithObjects:
-                           
-                              @"22", @"4",@"laying on bed and thinking", @"2",nil]];/*
-                           
                            @"0", @"7", @"sleeping", @"0",
                            @"7", @"7.5", @"walking", @"3",
                            @"7.5", @"8", @"breakfast", @"1",
@@ -205,7 +208,7 @@
                            @"19", @"20",@"have tea&eggs", @"1",
                            @"20", @"21",@"play chess", @"1",
                            @"21", @"22",@"read books", @"4",
-                           @"22", @"24",@"laying on bed and thinking", @"2",nil]];*/
+                           @"22", @"24",@"laying on bed and thinking", @"2",nil]];
 
     
     [_testPack addObject: @"Eva"];
@@ -343,7 +346,59 @@
                            @"22", @"23", @"Road Running", @"3",
                            @"23", @"23.5", @"Shower", @"1",
                            @"23.5", @"1", @"Relax", @"1",nil]];
+    
+    
+    NSMutableDictionary *testDict = [[NSMutableDictionary alloc] init];
+    
+    [testDict setObject:@"Darwin" forKey:ROUTINE_PROFILE_NAME];
+    [testDict setObject:@"1809 - 1882" forKey:ROUTINE_PROFILE_DESCRIPTION];
+    [testDict setObject:@"Darwin@noemail" forKey:ROUTINE_PROFILE_ACCOUNT];
+    NSData *pic =  UIImagePNGRepresentation([UIImage imageNamed:@"Darwin"]);
+    [testDict setObject:pic forKey:ROUTINE_PROFILE_PIC];
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    //input profile data
+    [Profile profileWithDictionary:testDict
+            inManagedObjectContext:appDelegate.managedObjectContext];
+    
+    //input activity data
+    for (int i = 0; i < [_testPack[2] count]/4; i++){
+        [testDict setObject:_testPack[2][0+i*4] forKey:ROUTINE_ACTIVITY_START];
+        [testDict setObject:_testPack[2][1+i*4] forKey:ROUTINE_ACTIVITY_END];
+        [testDict setObject:_testPack[2][2+i*4]  forKey:ROUTINE_ACTIVITY_CONTENT];
+        
+        UIColor* value = [self getDefinedColor: [_testPack[2][3+i*4] integerValue]];
+        [testDict setObject:value forKey:ROUTINE_COLOR_VALUE];
 
+        [testDict setObject:_testPack[2][3+i*4] forKey:ROUTINE_COLOR_TAG];
+        
+        [Activity ActivityWithDictionary:testDict
+                           withAccountID:@"Darwin@noemail"
+                  inManagedObjectContext:appDelegate.managedObjectContext];
+        
+    }
+    
+    [appDelegate saveContext];
+    
+}
+
+- (UIColor*) getDefinedColor :(NSUInteger) number
+{
+    if (number == 0){
+        return [UIColor whiteColor];
+    }if (number == 1){
+        return [UIColor colorWithRed:248/255.0 green:184/255.0 blue:98/255.0 alpha:1.0];
+    }if (number == 2){
+        return [UIColor colorWithRed:114/255.0 green:174/255.0 blue:114/255.0 alpha:1.0] ;
+    }if (number == 3){
+        return [UIColor colorWithRed:57/255.0 green:187/255.0 blue:198/255.0 alpha:1.0] ;
+    }if (number == 4){
+        return [UIColor colorWithRed:188/255.0 green:224/255.0 blue:196/255.0 alpha:1.0] ;
+    }if (number == 5){
+        return [UIColor lightGrayColor] ;
+    }else
+        return nil;
 }
 
 

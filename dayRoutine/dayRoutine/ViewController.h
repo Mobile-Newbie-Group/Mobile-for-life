@@ -10,6 +10,10 @@
 #import "RoutineView.h"
 #import "Grid.h"
 #import "DetailViewController.h"
+#import "AppDelegate.h"
+#import "RoutineFetcher.h"
+#import "Profile+Create.h"
+#import "Activity+Create.h"
 
 @interface ViewController : UIViewController
 

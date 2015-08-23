@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C96271281B6F4BC40017074B"
+               BlueprintIdentifier = "C9AB7F8A1B88803C003114F3"
                BuildableName = "dayRoutine.app"
                BlueprintName = "dayRoutine"
                ReferencedContainer = "container:dayRoutine.xcodeproj">
@@ -28,7 +28,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C96271441B6F4BC50017074B"
+               BlueprintIdentifier = "C9AB7FA61B88803C003114F3"
                BuildableName = "dayRoutineTests.xctest"
                BlueprintName = "dayRoutineTests"
                ReferencedContainer = "container:dayRoutine.xcodeproj">
@@ -46,7 +46,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C96271441B6F4BC50017074B"
+               BlueprintIdentifier = "C9AB7FA61B88803C003114F3"
                BuildableName = "dayRoutineTests.xctest"
                BlueprintName = "dayRoutineTests"
                ReferencedContainer = "container:dayRoutine.xcodeproj">
@@ -56,7 +56,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C96271281B6F4BC40017074B"
+            BlueprintIdentifier = "C9AB7F8A1B88803C003114F3"
             BuildableName = "dayRoutine.app"
             BlueprintName = "dayRoutine"
             ReferencedContainer = "container:dayRoutine.xcodeproj">
@@ -76,7 +76,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C96271281B6F4BC40017074B"
+            BlueprintIdentifier = "C9AB7F8A1B88803C003114F3"
             BuildableName = "dayRoutine.app"
             BlueprintName = "dayRoutine"
             ReferencedContainer = "container:dayRoutine.xcodeproj">
@@ -95,7 +95,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C96271281B6F4BC40017074B"
+            BlueprintIdentifier = "C9AB7F8A1B88803C003114F3"
             BuildableName = "dayRoutine.app"
             BlueprintName = "dayRoutine"
             ReferencedContainer = "container:dayRoutine.xcodeproj">

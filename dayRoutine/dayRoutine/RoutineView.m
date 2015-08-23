@@ -117,12 +117,23 @@
     [self.pic drawInRect:CGRectMake(self.centreP.x - self.CircuitInternalR,
                                     self.centreP.y - self.CircuitInternalR,
                                     self.CircuitInternalR*2,self.CircuitInternalR*2)];
+    //draw the rounded pic
+    [self drawActivy:0
+             toAngle:24
+           withColor:[UIColor whiteColor]];
     
     for (int i = 0;i < [self.activities count];i = i+4){
         
-        [self drawActivy:[self.activities[i] floatValue]
-                 toAngle:[self.activities[i+1] floatValue]
-               withColor:[self getDefinedColor:[self.activities[i+3] intValue]]];
+        if ( [self.activities[i+3] isKindOfClass:[UIColor class]]){
+        
+            [self drawActivy:[self.activities[i] floatValue]
+                     toAngle:[self.activities[i+1] floatValue]
+                   withColor:self.activities[i+3]];
+        }else{
+            [self drawActivy:[self.activities[i] floatValue]
+                     toAngle:[self.activities[i+1] floatValue]
+                   withColor:[self getDefinedColor:[self.activities[i+3] intValue]]];
+        }
         
         //if frame is too small, donont draw the detail of activities
         if (self.frame.size.width > DISPLAY_ACTIVITY_LENGTH){
@@ -200,7 +211,7 @@
     }if (number == 5){
         return [UIColor lightGrayColor] ;
     }else
-        return nil;
+        return [UIColor blackColor];
 }
 
 //covert time to radian

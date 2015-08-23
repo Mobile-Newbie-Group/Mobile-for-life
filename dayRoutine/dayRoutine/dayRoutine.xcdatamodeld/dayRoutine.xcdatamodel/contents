@@ -2,31 +2,30 @@
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14F27" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Activity" representedClassName="Activity" syncable="YES">
         <attribute name="activity" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="endT" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="startT" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <relationship name="color" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Color" inverseName="activity" inverseEntity="Color" syncable="YES"/>
-        <relationship name="profile" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Profile" inverseName="activity" inverseEntity="Profile" syncable="YES"/>
+        <attribute name="endT" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="startT" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="belongTo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Profile" inverseName="hasActivity" inverseEntity="Profile" syncable="YES"/>
+        <relationship name="hasColor" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Color" inverseName="belongTo" inverseEntity="Color" syncable="YES"/>
     </entity>
     <entity name="Color" representedClassName="Color" syncable="YES">
         <attribute name="tag" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="value" optional="YES" attributeType="String" valueTransformerName="UIColor" syncable="YES"/>
-        <relationship name="activity" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Activity" inverseName="color" inverseEntity="Activity" syncable="YES"/>
+        <attribute name="value" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <relationship name="belongTo" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Activity" inverseName="hasColor" inverseEntity="Activity" syncable="YES"/>
     </entity>
     <entity name="Profile" representedClassName="Profile" syncable="YES">
         <attribute name="account" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="age" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="descrip" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="occupation" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="pic" optional="YES" attributeType="Binary" syncable="YES"/>
-        <attribute name="professional" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="psw" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="sex" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <relationship name="activity" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Activity" inverseName="profile" inverseEntity="Activity" syncable="YES"/>
+        <relationship name="hasActivity" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Activity" inverseName="belongTo" inverseEntity="Activity" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Activity" positionX="-1647" positionY="-4771" width="128" height="118"/>
-        <element name="Color" positionX="-1874" positionY="-4705" width="128" height="90"/>
-        <element name="Profile" positionX="-1649" positionY="-4554" width="128" height="193"/>
+        <element name="Activity" positionX="-272" positionY="-18" width="128" height="118"/>
+        <element name="Color" positionX="-279" positionY="231" width="128" height="88"/>
+        <element name="Profile" positionX="-63" positionY="-18" width="128" height="178"/>
     </elements>
 </model>

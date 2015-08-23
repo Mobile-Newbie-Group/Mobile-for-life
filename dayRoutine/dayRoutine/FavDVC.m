@@ -9,6 +9,12 @@
 
 
 #import "FavDVC.h"
+#import "Profile.h"
+#import "AppDelegate.h"
+#import "RoutineFetcher.h"
+#import "Activity.h"
+#import "Color.h"
+
 
 @interface FavDvc ()
 
@@ -25,7 +31,7 @@
     
     RoutineView *rv = [[RoutineView alloc] initWithFrame:self.view.frame];
     
-    rv.subTitle = @"One day in Shenzhen";
+    /*rv.subTitle = @"One day in Shenzhen";
     rv.activities = [NSMutableArray arrayWithObjects:
                      @"0", @"5", @"?sleep", @"5",
                      @"5", @"9", @"", @"0",
@@ -43,7 +49,34 @@
                      @"21", @"22", @"handle notes", @"5",
                      @"22", @"23", @"drink", @"5",
                      @"23", @"24", @"sleep", @"5",nil];
-    rv.pic = [UIImage imageNamed:@"Gary"];
+    rv.pic = [UIImage imageNamed:@"Gary"];*/
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    NSString *name = @"Darwin";
+    
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Profile"];
+    request.predicate = [NSPredicate predicateWithFormat:@"name = %@",name];
+    NSError *error;
+    NSArray *arr = [appDelegate.managedObjectContext executeFetchRequest:request error:&error];
+    if (!error) {
+        Profile *profile = [arr firstObject];
+        rv.title = profile.name;
+        rv.subTitle = profile.descrip;
+        rv.pic = [[UIImage alloc] initWithData:profile.pic];
+        
+        NSMutableArray *tmp = [[NSMutableArray alloc] init];
+        
+        NSLog(@"%lu",(unsigned long)[profile.hasActivity count]);
+        for (Activity *s in profile.hasActivity){
+            NSLog(@"%@,%@,%@",s.startT,s.endT,s.activity);
+            [tmp addObject:s.startT];
+            [tmp addObject:s.endT];
+            [tmp addObject:s.activity];
+            [tmp addObject:s.hasColor.value];
+        }
+        rv.activities = tmp;
+    }
     
     [self.view addSubview:rv];
     

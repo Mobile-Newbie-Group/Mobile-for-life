@@ -2,7 +2,7 @@
 //  AppDelegate.m
 //  dayRoutine
 //
-//  Created by James chan on 3/8/15.
+//  Created by James chan on 22/8/15.
 //  Copyright (c) 2015 James` Awesome App House. All rights reserved.
 //
 
@@ -51,7 +51,7 @@
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
 - (NSURL *)applicationDocumentsDirectory {
-    // The directory the application uses to store the Core Data store file. This code uses a directory named "SZ-IBM-BTIT.dayRoutine" in the application's documents directory.
+    // The directory the application uses to store the Core Data store file. This code uses a directory named "Fun-House.dayRoutine" in the application's documents directory.
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
